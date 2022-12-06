@@ -1,27 +1,205 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.0.0">
-  <zoom_level>10</zoom_level>
+  <help_text/>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>100</x>
-      <y>70</y>
-      <w>210</w>
-      <h>190</h>
+      <x>483</x>
+      <y>42</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;Stereotype&gt;&gt;
-Package::FatClass
-{Some Properties}
---
--id: Long
-_-ClassAttribute: Long_
---
-#Operation(i: int): int
-/+AbstractOperation()/
---
-Responsibilities
--- Resp1
-*-- Resp2*</panel_attributes>
+    <panel_attributes>FinanseApplication
+-
++registration(): void
++logging(): void
++addIncome(): void
++addExpense(): void
++balanceOfThisMonth(): void
++balanceOfPreviousMonth(): void
++balanceOfChosenPeriod(): void
++changePassword(): void
++logOut(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>189</x>
+      <y>70</y>
+      <w>147</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>UserManager
+-
+-idOfTheLoggedInUser: int
+-users: vector &lt;User&gt; 
+-fileUsers: FileUsers 
+-
++registration(): void
++logging(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>735</x>
+      <y>140</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>FinanseManager
+-
++addIncome(): void
++addExpense(): void
++balanceOfThisMonth(): void
++balanceOfPreviousMonth(): void
++balanceOfChosenPeriod(): void
++changePassword(): void
++logOut(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>49</x>
+      <y>203</y>
+      <w>105</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>User
+-
+-id: int 
+-login: string 
+-password: string </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>98</x>
+      <y>413</y>
+      <w>392</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes>FileUsers
+-
+-FILENAME_WITH_USERS: const string 
+-
+-download_User_Data(string dataOfOneUserSeparatedByVerticalBars): User
++FileUsers(string nameOfTheFileWithUsers) : FILENAME_WITH_USERS(nameOfTheFileWithUsers){}
++addUserToFile(User user): void
++loadUsersFromFile(): vector &lt;User&gt;
++getFileNameWithUsers(): string
++replaceUserDataIntoLineWithDataSeparatedWithVerticalBars(Uzytkownik uzytkownik): static string
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>693</x>
+      <y>406</y>
+      <w>161</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>IncomesFile
+-
+-lastIncomeId: int
+-FILE_NAME_WITH_INCOMES: const string
+-
++RecipientFile(string fileNameWithRecipients): FILE_NAME_WITH_INCOMES(fileNameWithIncomes)
+    {lastIncomeId = 0; } 
++loadLoggedUsersIncomeFromFile(int lastIncomeId): vector&lt;Income&gt;
++addIncomeToFile(Income income): void
++getidOfTheLastIncome(): int
++returnIncomesLineNumber(int IncomeId): int
++deleteSelectedLineInFile(int deletedLineNumber): void
++replaceIncomeDataIntoLineWithDataSeparatedByVerticalBars(Income income): string
++editSelectedLineInFile(int numberofEditedLine, string lineWithAddresseeDetailsSeparatedByVerticalBars): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>938</x>
+      <y>133</y>
+      <w>147</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Incomes
+-
+- incomeId: int
+- incomeDate: string
+- incomeItem: string
+- incomeAmount: int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>938</x>
+      <y>217</y>
+      <w>147</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Expenses
+-
+- expenseId: int
+- expenseDate: string
+- expenseItem: string
+- expenseAmount: int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>903</x>
+      <y>406</y>
+      <w>161</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>ExpensesFile
+-
+-lastExpenseId: int
+-FILE_NAME_WITH_EXPENSES: const string
+-
++RecipientFile(string fileNameWithRecipients): FILE_NAME_WITH_EXPENSES(fileNameWithExpense)
+    {lastExpenseId = 0; } 
++loadLoggedUsersExpenseFromFile(int lastExpenseId): vector&lt;Expense&gt;
++addExpenseToFile(Expenses expense): void
++getidOfTheLastExpense(): int
++returnExpenseLineNumber(int ExpenseId): int
++deleteSelectedLineInFile(int deletedLineNumber): void
++replaceExpenseDataIntoLineWithDataSeparatedByVerticalBars(Expense expense): string
++editSelectedLineInFile(int numberofEditedLine, string lineWithAddresseeDetailsSeparatedByVerticalBars): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>294</x>
+      <y>210</y>
+      <w>329</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>AuxiliaryMethods
+-
+-
++convertsIntToString(int number): static string
++loadLine(): static string
++selectOptionFromMainMenu(): static char
++loadCharacter(): static char
++selectUserMenuOptions(): static char
++convertStringToInt(string number): static int
++downloadNumber(string text, int markPosition): static string
++loadInteger(): static int
++selectOptionsFromTheEditMenu(): static char
++displayNumberOfIncomeSearched(int numberOfIncomes): static void
++whetherTheFileIsEmpty(fstream &amp;textfile): static bool</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
