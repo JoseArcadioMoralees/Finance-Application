@@ -1,33 +1,38 @@
 #include <iostream>
 #include "Markup.h"
+#include "Users.h"
+#include <string>
+#include <vector>
 
 using namespace std;
 
 int main()
 {
+  string checker = "last printed element";
+  CMarkup xml;
+  int nQty;
+  string strSN;
 
-    CMarkup abc;
+  // xml.AddElem("ORDER");
+  // xml.IntoElem();
+  // xml.AddElem("ITEM");
+  // xml.IntoElem();
+  // xml.AddElem("SN", "132487A-J");
+  // xml.AddElem("NAME", "crank casing");
+  // xml.AddElem("QTY", "1");
 
-    bool fileExists = abc.Load("people.xml");
+  // xml.Save("ORDER.xml");
+  {
+    xml.IntoElem();
+    xml.FindElem("SN");
+    strSN = xml.GetData();
+    cout << strSN << endl;
+    xml.ResetMainPos();
+    xml.FindElem("QTY");
+    nQty = atoi(MCD_2PCSZ(xml.GetData()));
+    xml.OutOfElem();
+  }
+  
 
-    if (!fileExists)
-    {
-        abc.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
-        abc.AddElem("people");
-    }
-
-    abc.FindElem();
-    abc.IntoElem();
-    abc.AddElem("User");
-  //  abc.FindElem();
-    abc.IntoElem();
-    abc.AddElem("UserId", "3");
-    abc.OutOfElem(); 
-    abc.AddElem("Login", "zofia");
-    abc.IntoElem();
-    abc.AddElem("Password", "ronald");
-
-    abc.Save("people.xml");
-
-    return 0;
+  return 0;
 }
