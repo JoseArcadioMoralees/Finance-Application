@@ -13,7 +13,7 @@ class UsersFile
 
 public: 
     void saveToFile(vector<Users> users); 
-    void loadFromFile();
+    vector<Users> loadFromFile();
 };
 
 #endif

@@ -12,6 +12,7 @@ using namespace std;
 int main()
 { 
   UsersManager usersManager; 
-  usersManager.registerNewUser(); 
+  //usersManager.registerNewUser(); 
+  usersManager.logAUser();
   return 0;
 }

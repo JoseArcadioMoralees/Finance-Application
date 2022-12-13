@@ -12,5 +12,6 @@ class UsersManager
     UsersFile usersFile; 
 public:
     void registerNewUser();
+    void logAUser(); 
 };
 #endif

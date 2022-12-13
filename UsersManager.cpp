@@ -32,3 +32,20 @@ void UsersManager::registerNewUser()
 
     usersFile.saveToFile(users); 
 }
+
+void UsersManager::logAUser()
+{
+    users = usersFile.loadFromFile(); 
+
+    Users user; 
+    for(unsigned int i = 0; i < users.size(); i++)
+    {
+        user = users[i]; 
+
+        cout << "ID: " << user.getUserId() << endl; 
+        cout << "Login: " << user.getLogin() << endl;
+        cout << "Password: " << user.getPassword() << endl;
+        cout << "Name: " << user.getName() << endl;
+        cout << "Surname: " << user.getSurname() << endl << endl; 
+    }
+}

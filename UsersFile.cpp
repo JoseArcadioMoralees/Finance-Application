@@ -5,7 +5,7 @@ void UsersFile::saveToFile(vector<Users> users)
     for (unsigned int i = 0; i < users.size(); i++)
     {
         Users user;
-        user = users[i]; 
+        user = users[i];
         CMarkup xml;
 
         bool fileExists = xml.Load("users.xml");
@@ -30,10 +30,11 @@ void UsersFile::saveToFile(vector<Users> users)
     }
 }
 
-void UsersFile::loadFromFile()
+vector<Users> UsersFile::loadFromFile()
 {
     CMarkup xml;
     Users user;
+    vector<Users> users;
 
     if (xml.Load("users.xml"))
     {
@@ -42,23 +43,24 @@ void UsersFile::loadFromFile()
 
         xml.FindElem("Users");
         xml.IntoElem();
-        xml.FindElem("User");
-        xml.IntoElem();
-        xml.FindElem("UserId");
-        user.setUserId(atoi(xml.GetData().c_str()));
-        xml.FindElem("Login");
-        user.setLogin(xml.GetData());
-        xml.FindElem("Password");
-        user.setPassword(xml.GetData());
-        xml.FindElem("Name");
-        user.setName(xml.GetData());
-        xml.FindElem("Surname");
-        user.setSurname(xml.GetData());
+        while (xml.FindElem("User"))
+        {
+            xml.IntoElem();
+            xml.FindElem("UserId");
+            user.setUserId(atoi(xml.GetData().c_str()));
+            xml.FindElem("Login");
+            user.setLogin(xml.GetData());
+            xml.FindElem("Password");
+            user.setPassword(xml.GetData());
+            xml.FindElem("Name");
+            user.setName(xml.GetData());
+            xml.FindElem("Surname");
+            user.setSurname(xml.GetData());
+            xml.OutOfElem();
 
-        cout << user.getUserId() << endl;
-        cout << user.getLogin() << endl;
-        cout << user.getPassword() << endl;
-        cout << user.getName() << endl;
-        cout << user.getSurname() << endl;
+            users.push_back(user);
+        }
     }
+
+    return users;
 }
