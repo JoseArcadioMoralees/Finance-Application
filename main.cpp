@@ -25,10 +25,10 @@ int main()
   {
     xml.FindElem(); 
     xml.IntoElem(); // inside ORDER
-    xml.FindElem("ORDER");
+    xml.FindElem("ITEM");
     xml.IntoElem();
+    xml.FindElem("SN");
     strSN = xml.GetData();
-    xml.ResetPos();
     xml.FindElem("QTY");
     nQty = atoi(MCD_2PCSZ(xml.GetData()));
     xml.OutOfElem();
