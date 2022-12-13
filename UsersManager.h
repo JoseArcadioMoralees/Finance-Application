@@ -2,6 +2,7 @@
 #define USERSMANAGER_H
 #include<iostream>
 #include "UsersFile.h"
+#include "AuxiliaryFunctions.h"
 
 
 using namespace std; 
@@ -13,5 +14,6 @@ class UsersManager
 public:
     void registerNewUser();
     void logAUser(); 
+    void showUsers(); 
 };
 #endif
