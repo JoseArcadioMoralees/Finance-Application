@@ -1,33 +1,45 @@
 #include <iostream>
-#include "Markup.h"
+#include "UsersManager.h"
+#include <string>
+#include <vector>
 
 using namespace std;
 
 int main()
 {
+  UsersManager usersManager;
+  while (true)
+  {
+    char sign;
+    system("cls");
+    cout << "    >>> MENU  GLOWNE <<<" << endl;
+    cout << "---------------------------" << endl;
+    cout << "1. Rejestracja" << endl;
+    cout << "2. Logowanie" << endl;
+    cout << "9. Koniec programu" << endl;
+    cout << "---------------------------" << endl;
+    cout << "Twoj wybor: ";
+    sign = AuxiliaryFunctions::loadCharacter();
 
-    CMarkup abc;
-
-    bool fileExists = abc.Load("people.xml");
-
-    if (!fileExists)
+    switch (sign)
     {
-        abc.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
-        abc.AddElem("people");
+    case '1':
+      usersManager.registerNewUser();
+      break;
+    case '2':
+      usersManager.logAUser();
+      break;
+    case '9':
+      exit(0);
+      break;
+    default:
+      cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
+      system("pause");
+      break;
     }
+  }
 
-    abc.FindElem();
-    abc.IntoElem();
-    abc.AddElem("User");
-  //  abc.FindElem();
-    abc.IntoElem();
-    abc.AddElem("UserId", "3");
-    abc.OutOfElem(); 
-    abc.AddElem("Login", "zofia");
-    abc.IntoElem();
-    abc.AddElem("Password", "ronald");
-
-    abc.Save("people.xml");
-
-    return 0;
+  
+  
+  return 0;
 }
