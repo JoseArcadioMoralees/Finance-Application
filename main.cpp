@@ -8,31 +8,34 @@ using namespace std;
 
 int main()
 {
-  string checker = "last printed element";
   CMarkup xml;
-  int nQty;
-  string strSN;
+  int nQty = 12;
+  string strSN = "brak danych";
 
-  // xml.AddElem("ORDER");
-  // xml.IntoElem();
-  // xml.AddElem("ITEM");
-  // xml.IntoElem();
-  // xml.AddElem("SN", "132487A-J");
-  // xml.AddElem("NAME", "crank casing");
-  // xml.AddElem("QTY", "1");
+  bool fileExists = xml.Load("Sample.xml");
 
-  // xml.Save("ORDER.xml");
+  if (fileExists)
   {
+    cout << "loaded" << endl;
+  }
+  else
+    cout << "ERROR" << endl;
+
+  if (fileExists)
+  {
+    xml.FindElem(); 
+    xml.IntoElem(); // inside ORDER
+    xml.FindElem("ORDER");
     xml.IntoElem();
-    xml.FindElem("SN");
     strSN = xml.GetData();
-    cout << strSN << endl;
-    xml.ResetMainPos();
+    xml.ResetPos();
     xml.FindElem("QTY");
     nQty = atoi(MCD_2PCSZ(xml.GetData()));
     xml.OutOfElem();
   }
-  
+
+  cout << "nQty: " << nQty << endl;
+  cout << "strSN: " << strSN << endl;
 
   return 0;
 }
