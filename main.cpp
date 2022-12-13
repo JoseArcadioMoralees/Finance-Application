@@ -10,7 +10,7 @@ using namespace std;
 
 int main()
 {
-  UsersFile::saveToFile(); 
+  UsersFile::loadFromFile(); 
 
   return 0;
 }
