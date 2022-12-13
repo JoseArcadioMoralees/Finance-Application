@@ -12,9 +12,8 @@ class UsersFile
     
 
 public: 
-    static vector<Users> users;
-    static void saveToFile(); 
-    static void loadFromFile();
+    void saveToFile(vector<Users> users); 
+    void loadFromFile();
 };
 
 #endif
