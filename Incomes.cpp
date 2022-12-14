@@ -1,5 +1,9 @@
 #include "Incomes.h"
 
+int Incomes::getUserId()
+{
+    return userId; 
+}
 int Incomes::getIncomeId()
 {
     return incomeId; 
@@ -16,7 +20,10 @@ string Incomes::getItem()
 {
     return item; 
 }
-
+void Incomes::setUserId(int USERID)
+{
+    userId = USERID;
+}
 void Incomes::setIncomeId(int INCOMEID)
 {
     incomeId = INCOMEID; 
