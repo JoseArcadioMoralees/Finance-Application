@@ -9,6 +9,7 @@ class FinancialManager
     IncomesFile incomesFile; 
 public:
     void addIncome(); 
+    void loadIncome(); 
 };
 
 

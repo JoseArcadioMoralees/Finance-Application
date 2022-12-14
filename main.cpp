@@ -11,7 +11,7 @@ int main()
   UsersManager usersManager;
   FinancialManager financialManager; 
   financialManager.addIncome(); 
-
+  financialManager.loadIncome(); 
 
   /*
   while (true)

@@ -31,3 +31,8 @@ void FinancialManager::addIncome()
     incomesFile.saveToFile(income); 
     
 }
+
+void FinancialManager::loadIncome()
+{
+    incomesFile.LoadFromFile(); 
+}

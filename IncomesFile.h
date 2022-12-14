@@ -8,6 +8,7 @@ class IncomesFile
 {
 public:
     void saveToFile(Incomes income); 
+    Incomes LoadFromFile(); 
 };
 
 
