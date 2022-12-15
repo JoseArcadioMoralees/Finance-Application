@@ -3,12 +3,13 @@
 #include<iostream>
 #include "Markup.h"
 #include "Incomes.h"
+#include<vector>
 
 class IncomesFile
 {
 public:
     void saveToFile(Incomes income); 
-    Incomes LoadFromFile(); 
+    vector<Incomes> LoadFromFile(); 
 };
 
 

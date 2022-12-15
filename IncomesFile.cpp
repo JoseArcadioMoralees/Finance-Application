@@ -14,11 +14,10 @@ void IncomesFile::saveToFile(Incomes income)
 
     xml.FindElem();
     xml.IntoElem();
-    xml.AddElem("userId");
-    xml.SetAttrib("value", income.getUserId());
+    xml.AddElem("income");
     xml.IntoElem();
+    xml.AddElem("userId", income.getUserId());
     xml.AddElem("incomesId", income.getIncomeId());
-    xml.IntoElem();
     xml.AddElem("item", income.getItem());
     xml.AddElem("amount", income.getAmount());
     xml.AddElem("date", income.getDate());
@@ -26,38 +25,43 @@ void IncomesFile::saveToFile(Incomes income)
     xml.Save("incomes.xml");
 }
 
-Incomes IncomesFile::LoadFromFile()
+vector<Incomes> IncomesFile::LoadFromFile()
 {
     CMarkup xml;
     Incomes income;
+    vector<Incomes> incomes;
 
     if (xml.Load("incomes.xml"))
     {
         xml.FindElem();
         xml.IntoElem();
+        while (xml.FindElem("income"))
+        {
+            xml.IntoElem();
 
-        
-        xml.FindElem("userId");
-        income.setUserId = xml.GetAttrib("value"); 
-        xml.IntoElem();
-        xml.FindElem("incomesId");
-        xml.IntoElem();
-        income.setIncomeId(atoi(xml.GetData().c_str())); 
-        xml.FindElem("item");
-        income.setItem(xml.GetData());
-        xml.FindElem("amount");
-        income.setAmount(atoi(xml.GetData().c_str()));
-        xml.FindElem("date");
-        income.setDate(xml.GetData());
+            xml.FindElem("userId");
+            income.setUserId(atoi(xml.GetData().c_str()));
+            xml.FindElem("incomesId");
+            income.setIncomeId(atoi(xml.GetData().c_str()));
+            xml.FindElem("item");
+            income.setItem(xml.GetData());
+            xml.FindElem("amount");
+            income.setAmount(atoi(xml.GetData().c_str()));
+            xml.FindElem("date");
+            income.setDate(xml.GetData());
+            xml.OutOfElem();
 
+            incomes.push_back(income);
+        }
     }
 
-    cout << "User ID: " << income.getUserId() << endl; 
-    cout << "Incomes ID: " << income.getIncomeId() << endl; 
-    cout << "Item: " << income.getItem() << endl; 
-    cout << "Amount: " << income.getAmount() << endl; 
-    cout << "Date: " << income.getDate() << endl; 
-
-
-    return income;
+    for (unsigned int i = 0; i < incomes.size(); i++)
+    {
+        cout << "User ID: " << incomes[i].getUserId() << endl;
+        cout << "Incomes ID: " << incomes[i].getIncomeId() << endl;
+        cout << "Item: " << incomes[i].getItem() << endl;
+        cout << "Amount: " << incomes[i].getAmount() << endl;
+        cout << "Date: " << incomes[i].getDate() << endl << endl; 
+    }
+    return incomes;
 }
