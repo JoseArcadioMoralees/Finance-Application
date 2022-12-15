@@ -15,6 +15,7 @@ public:
     void loadIncome(); 
     void addExpense(); 
     void loadExpense();
+    void balance();
 };
 
 

@@ -72,3 +72,30 @@ void FinancialManager::loadExpense()
 {
     expensesFile.LoadFromFile();  
 }
+
+void FinancialManager::balance()
+{
+    vector<Expenses> expenses; 
+    vector<Incomes> incomes;
+    int sumOfExpenses = 0;
+    int sumOfIncomes = 0; 
+    int balance; 
+
+    expenses = expensesFile.LoadFromFile();
+    incomes = incomesFile.LoadFromFile(); 
+
+    for(unsigned int i = 0; i < incomes.size(); i++)
+    {
+        sumOfIncomes += incomes[i].getAmount(); 
+    }
+
+    for(unsigned int i = 0; i < expenses.size(); i++)
+    {
+        sumOfExpenses += expenses[i].getAmount(); 
+    } 
+
+    balance = sumOfIncomes - sumOfExpenses; 
+
+    cout << "Balance: " << balance << endl; 
+
+}
