@@ -1,5 +1,6 @@
 #include <iostream>
 #include "UsersManager.h"
+#include "FinancialManager.h"
 #include <string>
 #include <vector>
 
@@ -8,6 +9,11 @@ using namespace std;
 int main()
 {
   UsersManager usersManager;
+  FinancialManager financialManager; 
+  //financialManager.addIncome(); 
+  financialManager.loadIncome(); 
+
+  /*
   while (true)
   {
     char sign;
@@ -39,7 +45,7 @@ int main()
     }
   }
 
-  
+  */
   
   return 0;
 }
