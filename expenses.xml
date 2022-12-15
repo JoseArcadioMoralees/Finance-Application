@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<expenses>
+<expense>
+<userId>1</userId>
+<expensesId>10</expensesId>
+<item>buty</item>
+<amount>350</amount>
+<date>20022016</date>
+</expense>
+<expense>
+<userId>2</userId>
+<expensesId>20</expensesId>
+<item>angielski</item>
+<amount>200</amount>
+<date>15042022</date>
+</expense>
+</expenses>
