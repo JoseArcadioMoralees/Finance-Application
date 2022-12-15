@@ -36,3 +36,39 @@ void FinancialManager::loadIncome()
 {
     incomesFile.LoadFromFile(); 
 }
+
+void FinancialManager::addExpense()
+{
+    Expenses expense; 
+    cout << "Podaj ID uzytkownika: "; 
+    int userID; 
+    cin >> userID; 
+    expense.setUserId(userID);
+
+    cout <<"Podaj ID wydatku: ";
+    int expenseId; 
+    cin >> expenseId; 
+    expense.setExpenseId(expenseId);
+
+    cout << "Podaj nazwe wydatku: "; 
+    string item; 
+    cin >> item; 
+    expense.setItem(item);
+
+    cout << "Podaj kwote wydatku: ";
+    int amount;
+    cin >> amount; 
+    expense.setAmount(amount);
+
+    cout << "Podaj date wydatku: "; 
+    string date;
+    cin >> date; 
+    expense.setDate(date);
+
+    expensesFile.saveToFile(expense); 
+}
+
+void FinancialManager::loadExpense()
+{
+    expensesFile.LoadFromFile();  
+}

@@ -11,7 +11,11 @@ int main()
   UsersManager usersManager;
   FinancialManager financialManager; 
   //financialManager.addIncome(); 
-  financialManager.loadIncome(); 
+  //financialManager.loadIncome(); 
+
+  // financialManager.addExpense();
+  // financialManager.addExpense();
+  financialManager.loadExpense(); 
 
   /*
   while (true)
