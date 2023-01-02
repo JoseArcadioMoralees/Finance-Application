@@ -4,6 +4,7 @@
 #include "Markup.h"
 #include "Expenses.h"
 #include<vector>
+#include<algorithm>
 
 class ExpensesFile
 {

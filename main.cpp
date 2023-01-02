@@ -12,11 +12,9 @@ int main()
 {
 
   
-  FinancialManager financialManager; 
-  financialManager.addExpense();  
+  FinancialManager financialManager;   
+  financialManager.loadExpense();   
 
-
-  
 
   /*
   while (true)

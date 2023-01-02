@@ -65,9 +65,21 @@ string AuxiliaryFunctions::currentDate()
         day = to_string(zero) + to_string(ltm->tm_mday); 
     } 
 
-    date = year + month + day;
+    date = year + '-' + month + '-' + day;
 
     return date; 
 
+
+}
+bool AuxiliaryFunctions::checkDate(string date)
+{
+    if(date[4] != '-' || date[7] != '-')
+    {
+        cout << "Bledny zapis myslnikow (-) w dacie. Sprobuj ponownie." << endl;
+        return false;  
+    } else 
+    {
+        return true; 
+    }
 
 }
