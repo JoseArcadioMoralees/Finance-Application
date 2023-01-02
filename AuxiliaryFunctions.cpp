@@ -71,13 +71,52 @@ string AuxiliaryFunctions::currentDate()
 
 
 }
+
 bool AuxiliaryFunctions::checkDate(string date)
 {
     if(date[4] != '-' || date[7] != '-')
     {
         cout << "Bledny zapis myslnikow (-) w dacie. Sprobuj ponownie." << endl;
         return false;  
-    } else 
+    } else if((date[5] == '0' && 
+    (date[6] == '1' || date[6] == '3' || date[6] == '5' || date[6] == '7' || date[6] == '8'))&&
+    (date[8] >= '3' && date[9] > '1' ))
+    {
+        cout << "Ten miesiac nie ma tylu dni. Sprobuj ponownie." << endl; 
+        return false;
+    } else if((date[5] == '0' && 
+    (date[6] == '4' || date[6] == '6' || date[6] == '9'))&&
+    (date[8] >= '3' && date[9] > '0' ))
+    {
+        cout << "Ten miesiac nie ma tylu dni. Sprobuj ponownie." << endl; 
+        return false;
+    } else if((date[5] == '0' && 
+    (date[6] == '2' ))&&
+    (date[8] >= '2' && date[9] > '8' ))
+    {
+        cout << "Ten miesiac nie ma tylu dni. Sprobuj ponownie." << endl; 
+        return false;
+    } else if((date[5] == '1' && 
+    (date[6] == '0' ))&&
+    (date[8] >= '3' && date[9] > '1' ))
+    {
+        cout << "Ten miesiac nie ma tylu dni. Sprobuj ponownie." << endl; 
+        return false;
+    } else if((date[5] == '1' && 
+    (date[6] == '1' ))&&
+    (date[8] >= '3' && date[9] > '0' ))
+    {
+        cout << "Ten miesiac nie ma tylu dni. Sprobuj ponownie." << endl; 
+        return false;
+    } else if((date[5] == '1' && 
+    (date[6] == '2' ))&&
+    (date[8] >= '3' && date[9] > '1' ))
+    {
+        cout << "Ten miesiac nie ma tylu dni. Sprobuj ponownie." << endl; 
+        return false;
+    } 
+    
+    else 
     {
         return true; 
     }

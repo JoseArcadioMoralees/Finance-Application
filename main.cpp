@@ -13,7 +13,7 @@ int main()
 
   
   FinancialManager financialManager;   
-  financialManager.loadExpense();   
+  financialManager.addIncome();    
 
 
   /*
