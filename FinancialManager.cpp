@@ -22,11 +22,8 @@ void FinancialManager::addIncome()
     int amount;
     cin >> amount; 
     income.setAmount(amount);
-
-    cout << "Podaj date przychodu: "; 
-    string date;
-    cin >> date; 
-    income.setDate(date);
+ 
+    income.setDate(getDate());
 
     incomesFile.saveToFile(income); 
     
@@ -60,10 +57,7 @@ void FinancialManager::addExpense()
     cin >> amount; 
     expense.setAmount(amount);
 
-    cout << "Podaj date wydatku: "; 
-    string date;
-    cin >> date; 
-    expense.setDate(date);
+    expense.setDate(getDate());
 
     expensesFile.saveToFile(expense); 
 }
@@ -98,4 +92,24 @@ void FinancialManager::balance()
 
     cout << "Balance: " << balance << endl; 
 
+}
+string FinancialManager::getDate()
+{
+    string date; 
+    char option; 
+    cout << "Czy chcesz zapisac dane pod aktualna data (T/N)?" << endl; 
+    cin >> option; 
+    switch (option)
+    {
+    case 'T':
+        date = AuxiliaryFunctions::currentDate(); 
+        break;
+    
+    case 'N':
+        cout << "Podaj date (rrrrmmdd): ";
+        cin >> date; 
+        break;
+    }
+
+    return date; 
 }

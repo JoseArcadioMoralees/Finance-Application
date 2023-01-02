@@ -12,7 +12,9 @@ int main()
 {
 
   
-  cout << AuxiliaryFunctions::currentDateTime(); 
+  FinancialManager financialManager; 
+  financialManager.addExpense();  
+
 
   
 

@@ -39,7 +39,7 @@ bool AuxiliaryFunctions::checkLogin(string login, vector<Users> users)
     }
 }
 
-string AuxiliaryFunctions::currentDateTime()
+string AuxiliaryFunctions::currentDate()
 {
     string date, year, month, day; 
     int zero = 0; 
@@ -64,9 +64,6 @@ string AuxiliaryFunctions::currentDateTime()
     {
         day = to_string(zero) + to_string(ltm->tm_mday); 
     } 
-    cout << "year: " << year << endl;
-    cout << "month: " << month << endl;
-    cout << "day: " << day << endl;
 
     date = year + month + day;
 

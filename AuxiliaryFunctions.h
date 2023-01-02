@@ -13,7 +13,7 @@ class AuxiliaryFunctions
 public: 
     static char loadCharacter();
     static bool checkLogin(string login, vector<Users> users);
-    static string currentDateTime(); 
+    static string currentDate(); 
 };
 
 

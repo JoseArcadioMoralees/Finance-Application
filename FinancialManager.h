@@ -3,12 +3,14 @@
 #include<iostream>
 #include "ExpensesFile.h"
 #include "IncomesFile.h"
+#include "AuxiliaryFunctions.h"
 
 
 class FinancialManager
 {
     IncomesFile incomesFile;  
     ExpensesFile expensesFile; 
+    string getDate();
 
 public:
     void addIncome(); 
@@ -16,6 +18,7 @@ public:
     void addExpense(); 
     void loadExpense();
     void balance();
+     
 };
 
 

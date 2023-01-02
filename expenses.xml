@@ -21,4 +21,11 @@
 <amount>1000</amount>
 <date>12121212</date>
 </expense>
+<expense>
+<userId>11</userId>
+<expensesId>110</expensesId>
+<item>probny</item>
+<amount>12121212</amount>
+<date>20230102</date>
+</expense>
 </expenses>
