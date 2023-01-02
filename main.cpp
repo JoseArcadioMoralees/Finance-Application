@@ -1,23 +1,20 @@
 #include <iostream>
 #include "UsersManager.h"
 #include "FinancialManager.h"
+#include "AuxiliaryFunctions.h"
 #include <string>
 #include <vector>
+
 
 using namespace std;
 
 int main()
 {
-  UsersManager usersManager;
-  FinancialManager financialManager; 
-  // financialManager.addIncome(); 
-  // financialManager.addIncome();
-  // financialManager.loadIncome(); 
 
-  financialManager.addExpense();
-  // financialManager.addExpense();
-  // financialManager.loadExpense(); 
-  financialManager.balance(); 
+  
+  FinancialManager financialManager;   
+  financialManager.addIncome();    
+
 
   /*
   while (true)

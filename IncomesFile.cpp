@@ -48,7 +48,10 @@ vector<Incomes> IncomesFile::LoadFromFile()
             xml.FindElem("amount");
             income.setAmount(atoi(xml.GetData().c_str()));
             xml.FindElem("date");
-            income.setDate(xml.GetData());
+            string date = xml.GetData();
+            date.erase(remove(date.begin(), date.end(), '-'), date.end());
+            income.setDate(date);
+
             xml.OutOfElem();
 
             incomes.push_back(income);

@@ -4,6 +4,7 @@
 #include "Markup.h"
 #include "Incomes.h"
 #include<vector>
+#include<algorithm>
 
 class IncomesFile
 {
