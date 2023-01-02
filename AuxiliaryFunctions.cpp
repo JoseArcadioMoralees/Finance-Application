@@ -38,3 +38,39 @@ bool AuxiliaryFunctions::checkLogin(string login, vector<Users> users)
         }
     }
 }
+
+string AuxiliaryFunctions::currentDateTime()
+{
+    string date, year, month, day; 
+    int zero = 0; 
+
+    time_t now = time(0);
+
+    tm *ltm = localtime(&now);
+    year = to_string(1900 + ltm->tm_year); 
+
+    if (1 + ltm->tm_mon >=10)
+    {
+        month = to_string(1 + ltm->tm_mon);
+    } else
+    {
+        month = to_string(zero) + to_string(1 + ltm->tm_mon); 
+    }
+    
+    if (ltm->tm_mday >=10)
+    {
+        day = to_string(ltm->tm_mday); 
+    } else
+    {
+        day = to_string(zero) + to_string(ltm->tm_mday); 
+    } 
+    cout << "year: " << year << endl;
+    cout << "month: " << month << endl;
+    cout << "day: " << day << endl;
+
+    date = year + month + day;
+
+    return date; 
+
+
+}
