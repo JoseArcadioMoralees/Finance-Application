@@ -15,7 +15,11 @@ int main()
   system("cls");
   
   FinancialManager financialManager;   
-  financialManager.addExpense();    
+ // financialManager.addExpense();
+  // financialManager.addIncome();
+  // financialManager.addIncome();
+  // financialManager.addIncome();    
+  financialManager.loadIncome(); 
 
 
   /*

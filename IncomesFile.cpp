@@ -46,7 +46,7 @@ vector<Incomes> IncomesFile::LoadFromFile()
             xml.FindElem("item");
             income.setItem(xml.GetData());
             xml.FindElem("amount");
-            income.setAmount(atoi(xml.GetData().c_str()));
+            income.setAmount(stod(xml.GetData()));
             xml.FindElem("date");
             string date = xml.GetData();
             date.erase(remove(date.begin(), date.end(), '-'), date.end());
@@ -57,6 +57,7 @@ vector<Incomes> IncomesFile::LoadFromFile()
             incomes.push_back(income);
         }
     }
+    sort(incomes.begin(), incomes.end(), Incomes::compareDates); 
 
     for (unsigned int i = 0; i < incomes.size(); i++)
     {

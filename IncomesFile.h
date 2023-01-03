@@ -11,6 +11,7 @@
 class IncomesFile
 {
 public:
+
     void saveToFile(Incomes income); 
     vector<Incomes> LoadFromFile(); 
 };

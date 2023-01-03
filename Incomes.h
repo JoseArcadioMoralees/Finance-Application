@@ -1,6 +1,7 @@
 #ifndef INCOMES_H
 #define INCOMES_H
 #include<iostream>
+#include<algorithm>
 
 using namespace std; 
 
@@ -11,6 +12,11 @@ class Incomes
     string date, item; 
 
 public: 
+    static bool compareDates(Incomes date1, Incomes date2)
+    {
+        return (date1.date < date2.date); 
+    }
+
     int getUserId(); 
     int getIncomeId();
     double getAmount();
