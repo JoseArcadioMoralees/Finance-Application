@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incomes>
+<income>
+<userId>1</userId>
+<incomesId>10</incomesId>
+<item>ostatnieurodziny</item>
+<amount>2300.00</amount>
+<date>2022-03-19</date>
+</income>
+<income>
+<userId>2</userId>
+<incomesId>20</incomesId>
+<item>jakis</item>
+<amount>7600.00</amount>
+<date>2001-09-12</date>
+</income>
+<income>
+<userId>3</userId>
+<incomesId>30</incomesId>
+<item>brak</item>
+<amount>23.00</amount>
+<date>2023-01-05</date>
+</income>
+</incomes>

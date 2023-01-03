@@ -11,9 +11,15 @@ using namespace std;
 int main()
 {
 
+
+  system("cls");
   
   FinancialManager financialManager;   
-  financialManager.addIncome();    
+ // financialManager.addExpense();
+  // financialManager.addIncome();
+  // financialManager.addIncome();
+  // financialManager.addIncome();    
+  financialManager.loadIncome(); 
 
 
   /*

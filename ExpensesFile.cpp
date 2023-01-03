@@ -19,7 +19,7 @@ void ExpensesFile::saveToFile(Expenses expense)
     xml.AddElem("userId", expense.getUserId());
     xml.AddElem("expensesId", expense.getExpenseId());
     xml.AddElem("item", expense.getItem());
-    xml.AddElem("amount", expense.getAmount());
+    xml.AddElem("amount", AuxiliaryFunctions::prepareToSaveToFile(expense.getAmount()));
     xml.AddElem("date", expense.getDate());
 
     xml.Save("expenses.xml");
@@ -46,7 +46,7 @@ vector<Expenses> ExpensesFile::LoadFromFile()
             xml.FindElem("item");
             expense.setItem(xml.GetData());
             xml.FindElem("amount");
-            expense.setAmount(atoi(xml.GetData().c_str()));
+            expense.setAmount(stod(xml.GetData()));
             xml.FindElem("date");
             string date = xml.GetData();
             date.erase(remove(date.begin(), date.end(), '-'), date.end());

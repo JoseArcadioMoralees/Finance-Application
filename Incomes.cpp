@@ -8,7 +8,7 @@ int Incomes::getIncomeId()
 {
     return incomeId; 
 }
-int Incomes::getAmount()
+double Incomes::getAmount()
 {
     return amount; 
 }
@@ -28,7 +28,7 @@ void Incomes::setIncomeId(int INCOMEID)
 {
     incomeId = INCOMEID; 
 }
-void Incomes::setAmount(int AMOUNT)
+void Incomes::setAmount(double AMOUNT)
 {
     amount = AMOUNT; 
 }

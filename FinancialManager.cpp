@@ -19,8 +19,10 @@ void FinancialManager::addIncome()
     income.setItem(item);
 
     cout << "Podaj kwote przychodu: ";
-    int amount;
-    cin >> amount;
+    string writtenAmount;
+    cin >> writtenAmount;
+    replace(writtenAmount.begin(), writtenAmount.end(), ',', '.');
+    double amount = stod(writtenAmount);  
     income.setAmount(amount);
 
     income.setDate(getDate());
@@ -52,8 +54,11 @@ void FinancialManager::addExpense()
     expense.setItem(item);
 
     cout << "Podaj kwote wydatku: ";
-    int amount;
-    cin >> amount;
+    string writtenAmount;
+    cin >> writtenAmount;
+    replace( writtenAmount.begin(), writtenAmount.end(), ',', '.');
+    double amount = stod(writtenAmount); 
+
     expense.setAmount(amount);
 
     expense.setDate(getDate());

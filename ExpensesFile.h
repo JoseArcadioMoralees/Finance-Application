@@ -3,6 +3,7 @@
 #include<iostream>
 #include "Markup.h"
 #include "Expenses.h"
+#include "AuxiliaryFunctions.h"
 #include<vector>
 #include<algorithm>
 
