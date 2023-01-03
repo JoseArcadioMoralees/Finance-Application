@@ -128,3 +128,11 @@ bool AuxiliaryFunctions::checkDate(string date)
         return true;
     }
 }
+
+string AuxiliaryFunctions::prepareToSaveToFile(double amount)
+{
+    string amountStr = to_string(amount); 
+    size_t pos = amountStr.find(".");
+    amountStr.erase(pos + 3, 10);
+    return amountStr; 
+}

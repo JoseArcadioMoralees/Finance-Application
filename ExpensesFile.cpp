@@ -19,7 +19,7 @@ void ExpensesFile::saveToFile(Expenses expense)
     xml.AddElem("userId", expense.getUserId());
     xml.AddElem("expensesId", expense.getExpenseId());
     xml.AddElem("item", expense.getItem());
-    xml.AddElem("amount", expense.getAmount());
+    xml.AddElem("amount", AuxiliaryFunctions::prepareToSaveToFile(expense.getAmount()));
     xml.AddElem("date", expense.getDate());
 
     xml.Save("expenses.xml");

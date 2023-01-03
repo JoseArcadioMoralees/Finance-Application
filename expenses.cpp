@@ -8,7 +8,7 @@ int Expenses::getExpenseId()
 {
     return expenseId; 
 }
-int Expenses::getAmount()
+double Expenses::getAmount()
 {
     return amount; 
 }
@@ -28,7 +28,7 @@ void Expenses::setExpenseId(int INCOMEID)
 {
     expenseId = INCOMEID; 
 }
-void Expenses::setAmount(int AMOUNT)
+void Expenses::setAmount(double AMOUNT)
 {
     amount = AMOUNT; 
 }

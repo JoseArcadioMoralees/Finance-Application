@@ -19,7 +19,7 @@ void IncomesFile::saveToFile(Incomes income)
     xml.AddElem("userId", income.getUserId());
     xml.AddElem("incomesId", income.getIncomeId());
     xml.AddElem("item", income.getItem());
-    xml.AddElem("amount", income.getAmount());
+    xml.AddElem("amount", AuxiliaryFunctions::prepareToSaveToFile(income.getAmount()));
     xml.AddElem("date", income.getDate());
 
     xml.Save("incomes.xml");

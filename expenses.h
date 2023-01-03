@@ -6,19 +6,20 @@ using namespace std;
 
 class Expenses
 {
-    int expenseId, userId, amount; 
+    int expenseId, userId;
+    double amount; 
     string date, item; 
 
 public: 
     int getUserId(); 
     int getExpenseId();
-    int getAmount();
+    double getAmount();
     string getDate();
     string getItem();
 
     void setUserId(int USERID);
     void setExpenseId(int INCOMEID);
-    void setAmount(int AMOUNT); 
+    void setAmount(double AMOUNT); 
     void setDate(string DATE);
     void setItem(string ITEM); 
 };
