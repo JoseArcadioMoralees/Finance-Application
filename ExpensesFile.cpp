@@ -25,7 +25,7 @@ void ExpensesFile::saveToFile(Expenses expense)
     xml.Save("expenses.xml");
 }
 
-vector<Expenses> ExpensesFile::LoadFromFile()
+vector<Expenses> ExpensesFile::LoadFromFile(int ID_OF_LOGGED_USER)
 {
     CMarkup xml;
     Expenses expense;
@@ -40,7 +40,7 @@ vector<Expenses> ExpensesFile::LoadFromFile()
             xml.IntoElem();
 
             xml.FindElem("userId");
-            if (atoi(xml.GetData().c_str()) == idOfLoggedUser)
+            if (atoi(xml.GetData().c_str()) == ID_OF_LOGGED_USER)
             {
                 expense.setUserId(atoi(xml.GetData().c_str()));
                 xml.FindElem("expensesId");

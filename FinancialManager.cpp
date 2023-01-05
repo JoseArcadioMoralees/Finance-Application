@@ -3,7 +3,7 @@
 void FinancialManager::addIncome()
 {
     Incomes income;
-    income.setUserId(idOfLoggedUser);
+    income.setUserId(ID_OF_LOGGED_USER);
 
     income.setIncomeId(getIdOfLastIncome());
 
@@ -33,7 +33,7 @@ void FinancialManager::loadIncome()
 void FinancialManager::addExpense()
 {
     Expenses expense;
-    expense.setUserId(idOfLoggedUser);
+    expense.setUserId(ID_OF_LOGGED_USER);
 
     expense.setExpenseId(getIdOfLastExpense());
 
@@ -58,7 +58,7 @@ void FinancialManager::addExpense()
 
 void FinancialManager::loadExpense()
 {
-    expensesFile.LoadFromFile();
+    expensesFile.LoadFromFile(ID_OF_LOGGED_USER);
 }
 
 void FinancialManager::totalBalance()
@@ -70,7 +70,7 @@ void FinancialManager::totalBalance()
     double balance;
 
     incomes = incomesFile.LoadFromFile();
-    expenses = expensesFile.LoadFromFile();
+    expenses = expensesFile.LoadFromFile(ID_OF_LOGGED_USER);
 
     for (unsigned int i = 0; i < incomes.size(); i++)
     {
@@ -117,7 +117,7 @@ void FinancialManager::periodBalance()
     double balance;
     string startDate, endDate;
     incomes = incomesFile.LoadFromFile();
-    expenses = expensesFile.LoadFromFile();
+    expenses = expensesFile.LoadFromFile(ID_OF_LOGGED_USER);
 
     cout << "Podaj date startowa (rrrr-mm-dd): ";
     cin >> startDate;
@@ -240,7 +240,7 @@ int FinancialManager::getIdOfLastExpense()
 {
     vector<Expenses> expenses;
     int idOfLastExpense = 0; 
-    expenses = expensesFile.LoadFromFile();
+    expenses = expensesFile.LoadFromFile(ID_OF_LOGGED_USER);
 
     for(unsigned int i = 0; i < expenses.size(); i++)
     {
