@@ -40,30 +40,30 @@ vector<Expenses> ExpensesFile::LoadFromFile()
             xml.IntoElem();
 
             xml.FindElem("userId");
-            expense.setUserId(atoi(xml.GetData().c_str()));
-            xml.FindElem("expensesId");
-            expense.setExpenseId(atoi(xml.GetData().c_str()));
-            xml.FindElem("item");
-            expense.setItem(xml.GetData());
-            xml.FindElem("amount");
-            expense.setAmount(stod(xml.GetData()));
-            xml.FindElem("date");
-            string date = xml.GetData();
-            date.erase(remove(date.begin(), date.end(), '-'), date.end());
-            expense.setDate(date);
-            xml.OutOfElem();
+            if (atoi(xml.GetData().c_str()) == idOfLoggedUser)
+            {
+                expense.setUserId(atoi(xml.GetData().c_str()));
+                xml.FindElem("expensesId");
+                expense.setExpenseId(atoi(xml.GetData().c_str()));
+                xml.FindElem("item");
+                expense.setItem(xml.GetData());
+                xml.FindElem("amount");
+                expense.setAmount(stod(xml.GetData()));
+                xml.FindElem("date");
+                string date = xml.GetData();
+                date.erase(remove(date.begin(), date.end(), '-'), date.end());
+                expense.setDate(date);
 
-            expenses.push_back(expense);
+                xml.OutOfElem();
+
+                expenses.push_back(expense);
+            } else
+            {
+                xml.OutOfElem();
+            }
         }
     }
+    sort(expenses.begin(), expenses.end(), Expenses::compareDates);
 
-    for (unsigned int i = 0; i < expenses.size(); i++)
-    {
-        cout << "User ID: " << expenses[i].getUserId() << endl;
-        cout << "Expenses ID: " << expenses[i].getExpenseId() << endl;
-        cout << "Item: " << expenses[i].getItem() << endl;
-        cout << "Amount: " << expenses[i].getAmount() << endl;
-        cout << "Date: " << expenses[i].getDate() << endl << endl; 
-    }
     return expenses;
 }

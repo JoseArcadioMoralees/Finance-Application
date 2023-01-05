@@ -9,6 +9,8 @@
 
 class ExpensesFile
 {
+    int idOfLoggedUser = 1;
+
 public:
     void saveToFile(Expenses expense); 
     vector<Expenses> LoadFromFile(); 

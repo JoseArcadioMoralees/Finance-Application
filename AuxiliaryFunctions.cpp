@@ -136,3 +136,12 @@ string AuxiliaryFunctions::prepareToSaveToFile(double amount)
     amountStr.erase(pos + 3, 10);
     return amountStr; 
 }
+
+string AuxiliaryFunctions::addHyphenToDate(string date)
+{
+    // 2022-0612
+    date = date.insert(4, "-"); 
+    date = date.insert(7, "-"); 
+    return date; 
+
+}

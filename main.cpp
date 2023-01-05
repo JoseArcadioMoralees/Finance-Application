@@ -15,13 +15,8 @@ int main()
   system("cls");
   
   FinancialManager financialManager;   
- // financialManager.addExpense();
-  // financialManager.addIncome();
-  // financialManager.addIncome();
-  // financialManager.addIncome();    
-  financialManager.loadIncome(); 
-
-
+  financialManager.balance(); 
+ 
   /*
   while (true)
   {
