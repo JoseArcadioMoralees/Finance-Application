@@ -13,8 +13,8 @@ int main()
 
 
   system("cls");
-  
-  FinancialManager financialManager;   
+  int idofloggeduser = 1; 
+  FinancialManager financialManager(idofloggeduser);   
   financialManager.balance(); 
  
   /*

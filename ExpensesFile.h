@@ -9,11 +9,9 @@
 
 class ExpensesFile
 {
-    int idOfLoggedUser = 1;
-
 public:
     void saveToFile(Expenses expense); 
-    vector<Expenses> LoadFromFile(); 
+    vector<Expenses> LoadFromFile(int ID_OF_LOGGED_USER); 
 };
 
 

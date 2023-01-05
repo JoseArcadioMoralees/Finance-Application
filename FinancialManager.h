@@ -11,7 +11,7 @@
 
 class FinancialManager
 {
-    int idOfLoggedUser; 
+    const int ID_OF_LOGGED_USER; 
 
     IncomesFile incomesFile;  
     ExpensesFile expensesFile; 
@@ -23,10 +23,8 @@ class FinancialManager
     
 
 public:
-    FinancialManager()
-    {
-        idOfLoggedUser = 1; 
-    }
+    FinancialManager(int id_of_logged_user): ID_OF_LOGGED_USER(id_of_logged_user)
+    {}
 
     void addIncome(); 
     void loadIncome(); 
