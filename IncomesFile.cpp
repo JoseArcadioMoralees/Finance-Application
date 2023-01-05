@@ -40,32 +40,30 @@ vector<Incomes> IncomesFile::LoadFromFile()
             xml.IntoElem();
 
             xml.FindElem("userId");
-            income.setUserId(atoi(xml.GetData().c_str()));
-            xml.FindElem("incomesId");
-            income.setIncomeId(atoi(xml.GetData().c_str()));
-            xml.FindElem("item");
-            income.setItem(xml.GetData());
-            xml.FindElem("amount");
-            income.setAmount(stod(xml.GetData()));
-            xml.FindElem("date");
-            string date = xml.GetData();
-            date.erase(remove(date.begin(), date.end(), '-'), date.end());
-            income.setDate(date);
+            if (atoi(xml.GetData().c_str()) == idOfLoggedUser)
+            {
+                income.setUserId(atoi(xml.GetData().c_str()));
+                xml.FindElem("incomesId");
+                income.setIncomeId(atoi(xml.GetData().c_str()));
+                xml.FindElem("item");
+                income.setItem(xml.GetData());
+                xml.FindElem("amount");
+                income.setAmount(stod(xml.GetData()));
+                xml.FindElem("date");
+                string date = xml.GetData();
+                date.erase(remove(date.begin(), date.end(), '-'), date.end());
+                income.setDate(date);
 
-            xml.OutOfElem();
+                xml.OutOfElem();
 
-            incomes.push_back(income);
+                incomes.push_back(income);
+            } else
+            {
+                xml.OutOfElem();
+            }
         }
     }
-    sort(incomes.begin(), incomes.end(), Incomes::compareDates); 
+    sort(incomes.begin(), incomes.end(), Incomes::compareDates);
 
-    for (unsigned int i = 0; i < incomes.size(); i++)
-    {
-        cout << "User ID: " << incomes[i].getUserId() << endl;
-        cout << "Incomes ID: " << incomes[i].getIncomeId() << endl;
-        cout << "Item: " << incomes[i].getItem() << endl;
-        cout << "Amount: " << incomes[i].getAmount() << endl;
-        cout << "Date: " << incomes[i].getDate() << endl << endl; 
-    }
     return incomes;
 }

@@ -16,6 +16,7 @@ public:
     static string currentDate();
     static bool checkDate(string date);  
     static string prepareToSaveToFile(double amount); 
+    static string addHyphenToDate(string date); 
 };
 
 

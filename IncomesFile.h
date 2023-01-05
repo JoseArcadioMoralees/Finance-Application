@@ -10,6 +10,7 @@
 
 class IncomesFile
 {
+    int idOfLoggedUser = 1;
 public:
 
     void saveToFile(Incomes income); 
