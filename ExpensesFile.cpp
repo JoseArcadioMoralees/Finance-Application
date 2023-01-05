@@ -56,6 +56,7 @@ vector<Expenses> ExpensesFile::LoadFromFile()
             expenses.push_back(expense);
         }
     }
+    sort(expenses.begin(), expenses.end(), Expenses::compareDates);
 
     for (unsigned int i = 0; i < expenses.size(); i++)
     {

@@ -11,6 +11,10 @@ class Expenses
     string date, item; 
 
 public: 
+    static bool compareDates(Expenses date1, Expenses date2)
+    {
+        return (date1.date < date2.date); 
+    }
     int getUserId(); 
     int getExpenseId();
     double getAmount();

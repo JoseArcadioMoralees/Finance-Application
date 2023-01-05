@@ -18,8 +18,11 @@ int main()
  // financialManager.addExpense();
   // financialManager.addIncome();
   // financialManager.addIncome();
-  // financialManager.addIncome();    
-  financialManager.loadIncome(); 
+  // financialManager.addIncome();  
+  financialManager.addExpense();
+  financialManager.addExpense();
+  financialManager.addExpense();  
+  financialManager.loadExpense();  
 
 
   /*
