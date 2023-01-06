@@ -10,11 +10,10 @@
 
 class IncomesFile
 {
-    int idOfLoggedUser = 1;
 public:
 
     void saveToFile(Incomes income); 
-    vector<Incomes> LoadFromFile(); 
+    vector<Incomes> LoadFromFile(int ID_OF_LOGGED_USER); 
 };
 
 

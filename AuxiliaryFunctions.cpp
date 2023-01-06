@@ -23,22 +23,6 @@ char AuxiliaryFunctions::loadCharacter()
     return character;
 }
 
-bool AuxiliaryFunctions::checkLogin(string login, vector<Users> users)
-{
-    for (unsigned int i = 0; i < users.size(); i++)
-    {
-        if (login == users[i].getLogin())
-        {
-            return true;
-            break;
-        }
-        else if (login != users[i].getLogin() && i == (users.size() - 1))
-        {
-            return false;
-            break;
-        }
-    }
-}
 
 string AuxiliaryFunctions::currentDate()
 {

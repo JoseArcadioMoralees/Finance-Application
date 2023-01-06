@@ -1,9 +1,10 @@
 #ifndef FINANCIALMANAGER_H
 #define FINANCIALMANAGER_H
-#include<iostream>
+#include <iostream>
 #include <algorithm>
 #include <cmath>
 #include <cstring>
+#include <iomanip>
 #include "ExpensesFile.h"
 #include "IncomesFile.h"
 #include "AuxiliaryFunctions.h"
@@ -20,16 +21,15 @@ class FinancialManager
     int getIdOfLastExpense();
     void totalBalance();
     void periodBalance(); 
+    void loadIncome(); 
+    void loadExpense();
     
 
 public:
-    FinancialManager(int id_of_logged_user): ID_OF_LOGGED_USER(id_of_logged_user)
-    {}
+    FinancialManager(int id_of_logged_user): ID_OF_LOGGED_USER(id_of_logged_user) {}
 
     void addIncome(); 
-    void loadIncome(); 
     void addExpense(); 
-    void loadExpense();
     void balance(); 
     
     

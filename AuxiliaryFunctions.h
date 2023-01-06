@@ -12,7 +12,6 @@ class AuxiliaryFunctions
 {
 public: 
     static char loadCharacter();
-    static bool checkLogin(string login, vector<Users> users);
     static string currentDate();
     static bool checkDate(string date);  
     static string prepareToSaveToFile(double amount); 

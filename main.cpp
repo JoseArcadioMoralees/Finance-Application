@@ -1,55 +1,93 @@
 #include <iostream>
+#include "FinanceApplication.h"
 #include "UsersManager.h"
-#include "FinancialManager.h"
-#include "AuxiliaryFunctions.h"
 #include <string>
 #include <vector>
-
 
 using namespace std;
 
 int main()
 {
-
+  FinanceApplication financeApplication;
+  UsersManager usersManager; 
 
   system("cls");
-  int idofloggeduser = 1; 
-  FinancialManager financialManager(idofloggeduser);   
-  financialManager.balance(); 
- 
-  /*
+
   while (true)
   {
-    char sign;
-    system("cls");
-    cout << "    >>> MENU  GLOWNE <<<" << endl;
-    cout << "---------------------------" << endl;
-    cout << "1. Rejestracja" << endl;
-    cout << "2. Logowanie" << endl;
-    cout << "9. Koniec programu" << endl;
-    cout << "---------------------------" << endl;
-    cout << "Twoj wybor: ";
-    sign = AuxiliaryFunctions::loadCharacter();
-
-    switch (sign)
+    if (financeApplication.getIdOfLoggedUser() == 0)
     {
-    case '1':
-      usersManager.registerNewUser();
-      break;
-    case '2':
-      usersManager.logAUser();
-      break;
-    case '9':
-      exit(0);
-      break;
-    default:
-      cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
-      system("pause");
-      break;
+      char sign;
+      system("cls");
+      cout << "    >>> MENU  GLOWNE <<<" << endl;
+      cout << "---------------------------" << endl;
+      cout << "1. Rejestracja" << endl;
+      cout << "2. Logowanie" << endl;
+      cout << "3. Pokaz uzytkownikow" << endl;
+      cout << "9. Koniec programu" << endl;
+      cout << "---------------------------" << endl;
+      cout << "Twoj wybor: ";
+      sign = AuxiliaryFunctions::loadCharacter();
+
+      switch (sign)
+      {
+      case '1':
+        financeApplication.registerNewUser();
+        break;
+      case '2':
+        financeApplication.logAUser();
+        break;
+      case '3':
+        financeApplication.showUsers();
+        break;
+      case '9':
+        exit(0);
+        break;
+      default:
+        cout << endl
+             << "Nie ma takiej opcji w menu." << endl
+             << endl;
+        system("pause");
+        break;
+      }
+    }
+    else
+    {
+      char sign;
+      system("cls");
+      cout << "    >>> FINANSE <<<" << endl;
+      cout << "---------------------------" << endl;
+      cout << "1. Dodaj przychod" << endl;
+      cout << "2. Dodaj wydatek" << endl;
+      cout << "3. Bilans" << endl;
+      cout << "4. Wyloguj sie" << endl;
+      cout << "---------------------------" << endl;
+      cout << "Twoj wybor: ";
+      sign = AuxiliaryFunctions::loadCharacter();
+
+      switch (sign)
+      {
+      case '1':
+        financeApplication.addIncome();
+        break;
+      case '2':
+        financeApplication.addExpense();
+        break;
+      case '3':
+        financeApplication.balance();
+        break;
+      case '4':
+        financeApplication.logOut(); 
+        break;
+      default:
+        cout << endl
+             << "Nie ma takiej opcji w menu." << endl
+             << endl;
+        system("pause");
+        break;
+      }
     }
   }
 
-  */
-  
   return 0;
 }
