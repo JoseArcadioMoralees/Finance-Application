@@ -12,7 +12,7 @@ class UsersFile
     
 
 public: 
-    void saveToFile(vector<Users> users); 
+    void saveToFile(Users user); 
     vector<Users> loadFromFile();
 };
 

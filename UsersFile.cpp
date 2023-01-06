@@ -1,11 +1,8 @@
 #include "UsersFile.h"
 
-void UsersFile::saveToFile(vector<Users> users)
+void UsersFile::saveToFile(Users user)
 {
-    for (unsigned int i = 0; i < users.size(); i++)
-    {
-        Users user;
-        user = users[i];
+
         CMarkup xml;
 
         bool fileExists = xml.Load("users.xml");
@@ -28,7 +25,6 @@ void UsersFile::saveToFile(vector<Users> users)
 
         xml.Save("users.xml");
     }
-}
 
 vector<Users> UsersFile::loadFromFile()
 {

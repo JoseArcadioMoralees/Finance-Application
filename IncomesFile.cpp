@@ -25,7 +25,7 @@ void IncomesFile::saveToFile(Incomes income)
     xml.Save("incomes.xml");
 }
 
-vector<Incomes> IncomesFile::LoadFromFile()
+vector<Incomes> IncomesFile::LoadFromFile(int ID_OF_LOGGED_USER)
 {
     CMarkup xml;
     Incomes income;
@@ -40,7 +40,7 @@ vector<Incomes> IncomesFile::LoadFromFile()
             xml.IntoElem();
 
             xml.FindElem("userId");
-            if (atoi(xml.GetData().c_str()) == idOfLoggedUser)
+            if (atoi(xml.GetData().c_str()) == ID_OF_LOGGED_USER)
             {
                 income.setUserId(atoi(xml.GetData().c_str()));
                 xml.FindElem("incomesId");

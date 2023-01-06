@@ -9,7 +9,7 @@ void FinancialManager::addIncome()
 
     cout << "Podaj nazwe przychodu: ";
     string item;
-    cin.ignore(1, '\n');
+    cin.ignore(0, '\n');
     getline(cin, item); 
     income.setItem(item);
 
@@ -27,7 +27,7 @@ void FinancialManager::addIncome()
 
 void FinancialManager::loadIncome()
 {
-    incomesFile.LoadFromFile();
+    incomesFile.LoadFromFile(ID_OF_LOGGED_USER);
 }
 
 void FinancialManager::addExpense()
@@ -39,7 +39,7 @@ void FinancialManager::addExpense()
 
     cout << "Podaj nazwe wydatku: ";
     string item;
-    cin.ignore(1, '\n');
+    cin.ignore(0, '\n');
     getline(cin, item);
     expense.setItem(item);
 
@@ -69,7 +69,7 @@ void FinancialManager::totalBalance()
     double sumOfIncomes = 0;
     double balance;
 
-    incomes = incomesFile.LoadFromFile();
+    incomes = incomesFile.LoadFromFile(ID_OF_LOGGED_USER);
     expenses = expensesFile.LoadFromFile(ID_OF_LOGGED_USER);
 
     for (unsigned int i = 0; i < incomes.size(); i++)
@@ -103,9 +103,10 @@ void FinancialManager::totalBalance()
     }
     cout << endl; 
 
-    cout << "Suma przychodow: " << sumOfIncomes << endl;
-    cout << "Suma wydatkow: " << sumOfExpenses << endl;
+    cout << "Suma przychodow: " << fixed << setprecision(2) << sumOfIncomes << endl;
+    cout << "Suma wydatkow: " << fixed << setprecision(2) << sumOfExpenses << endl;
     cout << "Bilans: " << balance << endl;
+    system("Pause"); 
 }
 
 void FinancialManager::periodBalance()
@@ -116,7 +117,7 @@ void FinancialManager::periodBalance()
     double sumOfIncomes = 0;
     double balance;
     string startDate, endDate;
-    incomes = incomesFile.LoadFromFile();
+    incomes = incomesFile.LoadFromFile(ID_OF_LOGGED_USER);
     expenses = expensesFile.LoadFromFile(ID_OF_LOGGED_USER);
 
     cout << "Podaj date startowa (rrrr-mm-dd): ";
@@ -171,9 +172,11 @@ void FinancialManager::periodBalance()
     cout << endl
          << endl;
 
-    cout << "Suma przychodow: " << sumOfIncomes << endl;
-    cout << "Suma wydatkow: " << sumOfExpenses << endl;
+    cout << "Suma przychodow: " << fixed << setprecision(2) << sumOfIncomes << endl;
+    cout << "Suma wydatkow: " << fixed << setprecision(2) << sumOfExpenses << endl;
     cout << "Bilans: " << balance << endl;
+
+    system("Pause");
 }
 
 void FinancialManager::balance()
@@ -223,7 +226,7 @@ int FinancialManager::getIdOfLastIncome()
 {
     vector<Incomes> incomes;
     int idOfLastIncome = 0; 
-    incomes = incomesFile.LoadFromFile();
+    incomes = incomesFile.LoadFromFile(ID_OF_LOGGED_USER);
 
     for(unsigned int i = 0; i < incomes.size(); i++)
     {
