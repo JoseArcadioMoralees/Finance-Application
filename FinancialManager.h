@@ -4,7 +4,9 @@
 #include <algorithm>
 #include <cmath>
 #include <cstring>
+#include <string>
 #include <iomanip>
+#include <map>
 #include "ExpensesFile.h"
 #include "IncomesFile.h"
 #include "AuxiliaryFunctions.h"
@@ -20,9 +22,15 @@ class FinancialManager
     int getIdOfLastIncome(); 
     int getIdOfLastExpense();
     void totalBalance();
-    void periodBalance(); 
+    void periodBalance();  
+    void currentMonthBalance();
+    void lastMonthBalance();
     void loadIncome(); 
-    void loadExpense();
+    void loadExpense(); 
+    map<string, string>DaysOfMonth; 
+    void daysOfMonth(); 
+    string minusOneMonth(string date);
+    
     
 
 public:
@@ -31,6 +39,7 @@ public:
     void addIncome(); 
     void addExpense(); 
     void balance(); 
+     
     
     
 };

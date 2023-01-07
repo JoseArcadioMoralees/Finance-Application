@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Users>
+<User>
+<UserId>1</UserId>
+<Login>kaka</Login>
+<Password>milan</Password>
+<Name>jacek</Name>
+<Surname>kowalski</Surname>
+</User>
+<User>
+<UserId>2</UserId>
+<Login>radek</Login>
+<Password>1234</Password>
+<Name>radek</Name>
+<Surname>nowak</Surname>
+</User>
+</Users>

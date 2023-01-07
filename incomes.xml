@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incomes>
+<income>
+<userId>1</userId>
+<incomesId>1</incomesId>
+<item>wyplata</item>
+<amount>2335.01</amount>
+<date>2023-01-07</date>
+</income>
+<income>
+<userId>1</userId>
+<incomesId>2</incomesId>
+<item>sprzedaz opon letnich</item>
+<amount>500.00</amount>
+<date>2022-12-22</date>
+</income>
+<income>
+<userId>1</userId>
+<incomesId>3</incomesId>
+<item>sprzedaz ubran</item>
+<amount>200.00</amount>
+<date>2023-01-02</date>
+</income>
+<income>
+<userId>1</userId>
+<incomesId>4</incomesId>
+<item>zaklad</item>
+<amount>100.00</amount>
+<date>2022-11-25</date>
+</income>
+<income>
+<userId>2</userId>
+<incomesId>1</incomesId>
+<item>pensja</item>
+<amount>3422.34</amount>
+<date>2022-12-03</date>
+</income>
+<income>
+<userId>2</userId>
+<incomesId>2</incomesId>
+<item>pensja</item>
+<amount>3433.44</amount>
+<date>2023-01-07</date>
+</income>
+</incomes>

@@ -1,6 +1,7 @@
 #include <iostream>
 #include "FinanceApplication.h"
 #include "UsersManager.h"
+#include "FinancialManager.h"
 #include <string>
 #include <vector>
 
@@ -9,9 +10,12 @@ using namespace std;
 int main()
 {
   FinanceApplication financeApplication;
-  UsersManager usersManager; 
+  UsersManager usersManager;
 
-  system("cls");
+  
+
+
+   system("cls");
 
   while (true)
   {
@@ -77,7 +81,7 @@ int main()
         financeApplication.balance();
         break;
       case '4':
-        financeApplication.logOut(); 
+        financeApplication.logOut();
         break;
       default:
         cout << endl
