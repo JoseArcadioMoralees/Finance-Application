@@ -24,11 +24,13 @@ class FinancialManager
     void totalBalance();
     void periodBalance();  
     void currentMonthBalance();
-    void periodBalance(string month, string year);
+    void lastMonthBalance();
     void loadIncome(); 
     void loadExpense(); 
     map<string, string>DaysOfMonth; 
     void daysOfMonth(); 
+    string minusOneMonth(string date);
+    
     
 
 public:
@@ -37,6 +39,7 @@ public:
     void addIncome(); 
     void addExpense(); 
     void balance(); 
+     
     
     
 };
