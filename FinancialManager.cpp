@@ -179,20 +179,108 @@ void FinancialManager::periodBalance()
     system("Pause");
 }
 
+void FinancialManager::currentMonthBalance()
+{
+    //rrrr-mm-dd
+    vector<Expenses> expenses;
+    vector<Incomes> incomes;
+    double sumOfExpenses = 0;
+    double sumOfIncomes = 0;
+    double balance;
+    string startDate, endDate, daysOfMonth, currentDate,  month;
+    incomes = incomesFile.LoadFromFile(ID_OF_LOGGED_USER);
+    expenses = expensesFile.LoadFromFile(ID_OF_LOGGED_USER);
+    currentDate = AuxiliaryFunctions::currentDate(); 
+
+    month = currentDate[5]; 
+    month = month + currentDate[6]; 
+    FinancialManager::daysOfMonth();   
+    for (map<string, string>:: iterator itr = DaysOfMonth.begin(); itr != DaysOfMonth.end(); itr++)
+    { 
+        if(month == itr -> first)
+        {
+            daysOfMonth = itr ->second; 
+        }
+    } 
+    currentDate.replace(8, 2, "01");
+    startDate = currentDate; 
+    currentDate.replace(8, 2, daysOfMonth);
+    endDate = currentDate;
+
+    cout << startDate << endl;
+    cout << endDate << endl;
+
+    startDate.erase(remove(startDate.begin(), startDate.end(), '-'), startDate.end());
+    endDate.erase(remove(endDate.begin(), endDate.end(), '-'), endDate.end());
+
+    for (unsigned int i = 0; i < incomes.size(); i++)
+    {
+        if (incomes[i].getDate() >= startDate && incomes[i].getDate() <= endDate)
+        {
+            sumOfIncomes += incomes[i].getAmount();
+        }
+    }
+
+    for (unsigned int i = 0; i < expenses.size(); i++)
+    {
+        if (expenses[i].getDate() >= startDate && expenses[i].getDate() <= endDate)
+        {
+            sumOfExpenses += expenses[i].getAmount();
+        }
+    }
+
+    balance = sumOfIncomes - sumOfExpenses;
+
+    cout << "Przychody" << endl;
+    for (unsigned int i = 0; i < incomes.size(); i++)
+    {
+        if (incomes[i].getDate() >= startDate && incomes[i].getDate() <= endDate)
+        {
+            cout << "Rodzaj: " << incomes[i].getItem() << " | "
+                 << "Kwota: " << incomes[i].getAmount() << " | "
+                 << "Data: " << AuxiliaryFunctions::addHyphenToDate(incomes[i].getDate()) << endl;
+        }
+    }
+    cout << endl
+         << endl;
+
+    cout << "Wydatki" << endl;
+    for (unsigned int i = 0; i < expenses.size(); i++)
+    {
+        if (expenses[i].getDate() >= startDate && expenses[i].getDate() <= endDate)
+        {
+            cout << "Rodzaj: " << expenses[i].getItem() << " | "
+                 << "Kwota: " << expenses[i].getAmount() << " | "
+                 << "Data: " << AuxiliaryFunctions::addHyphenToDate(expenses[i].getDate()) << endl;
+        }
+    }
+    cout << endl
+         << endl;
+
+    cout << "Suma przychodow: " << fixed << setprecision(2) << sumOfIncomes << endl;
+    cout << "Suma wydatkow: " << fixed << setprecision(2) << sumOfExpenses << endl;
+    cout << "Bilans: " << balance << endl;
+
+    system("Pause");
+}
+
 void FinancialManager::balance()
 {
     char option; 
-    cout << "Jaki bilans chcesz przeprowadzic? Calkowity: - c; z wybranego okresu - w: ";
+    cout << "Jaki bilans chcesz przeprowadzic? Calkowity (1), z wybranego okresu (2), z obecnego miesiaca (3) ";
     cin >> option; 
     option = toupper(option); 
 
     switch (option)
     {
-    case 'C':
+    case '1':
         totalBalance(); 
         break;
-    case 'W':
+    case '2':
         periodBalance(); 
+        break;
+    case '3':
+        currentMonthBalance(); 
         break;
     }
 }
@@ -255,3 +343,24 @@ int FinancialManager::getIdOfLastExpense()
 
     return ++idOfLastExpense;
 }
+
+void FinancialManager::daysOfMonth()
+{
+    DaysOfMonth["01"] = "31"; 
+    DaysOfMonth["02"] = "28";
+    DaysOfMonth["03"] = "31";
+    DaysOfMonth["04"] = "30";
+    DaysOfMonth["05"] = "31";
+    DaysOfMonth["06"] = "30";
+    DaysOfMonth["07"] = "31";
+    DaysOfMonth["08"] = "31";
+    DaysOfMonth["09"] = "30";
+    DaysOfMonth["10"] = "31";
+    DaysOfMonth["11"] = "30";
+    DaysOfMonth["12"] = "31";
+}
+
+
+
+
+
