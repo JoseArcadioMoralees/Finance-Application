@@ -42,3 +42,8 @@ void FinanceApplication::balance()
 {
     financialManager->balance(); 
 }
+
+void FinanceApplication::changePassword()
+{
+    usersManager.changePassword();
+}

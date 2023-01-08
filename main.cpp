@@ -64,7 +64,8 @@ int main()
       cout << "1. Dodaj przychod" << endl;
       cout << "2. Dodaj wydatek" << endl;
       cout << "3. Bilans" << endl;
-      cout << "4. Wyloguj sie" << endl;
+      cout << "4. Zmiana hasla" << endl;
+      cout << "5. Wyloguj sie" << endl;
       cout << "---------------------------" << endl;
       cout << "Twoj wybor: ";
       sign = AuxiliaryFunctions::loadCharacter();
@@ -81,6 +82,9 @@ int main()
         financeApplication.balance();
         break;
       case '4':
+        financeApplication.changePassword();
+        break;
+      case '5':
         financeApplication.logOut();
         break;
       default:

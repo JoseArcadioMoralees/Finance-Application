@@ -30,6 +30,7 @@ public:
     void addIncome();
     void addExpense();
     void balance();
+    void changePassword(); 
 
 
 };
