@@ -1,6 +1,7 @@
 #ifndef USERSMANAGER_H
 #define USERSMANAGER_H
 #include<iostream>
+#include <cstdio>
 #include "UsersFile.h"
 #include "AuxiliaryFunctions.h"
 
@@ -32,5 +33,6 @@ public:
     void showUsers(); 
     int getIdOfLoggedUser(); 
     void setIdOfLoggedUser(int id_of_logged_user); 
+    void changePassword(); 
 };
 #endif

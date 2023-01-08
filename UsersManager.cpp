@@ -184,3 +184,28 @@ void UsersManager::setIdOfLoggedUser(int id_of_logged_user)
 {
     idOfLoggedUser = id_of_logged_user; 
 }
+
+void UsersManager::changePassword()
+{
+    Users user; 
+    string newPassword; 
+
+    for(unsigned int i = 0; i < users.size(); i++)
+    {
+        if(idOfLoggedUser == users[i].getUserId())
+        {
+            cout << "Podaj nowe haslo: ";
+            cin >> newPassword; 
+            users[i].setPassword(newPassword); 
+        }
+    }
+    remove("users.xml"); 
+
+    for (unsigned j = 0; j < users.size(); j++)
+    {
+        user = users[j];
+        usersFile.saveToFile(user); 
+    }
+    
+
+}

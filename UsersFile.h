@@ -9,11 +9,11 @@ using namespace std;
 
 class UsersFile
 {
-    
 
 public: 
     void saveToFile(Users user); 
     vector<Users> loadFromFile();
+    void removeElementFromFile(int idOfLoggedUser); 
 };
 
 #endif

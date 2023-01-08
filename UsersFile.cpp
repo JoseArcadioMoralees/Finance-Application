@@ -3,28 +3,28 @@
 void UsersFile::saveToFile(Users user)
 {
 
-        CMarkup xml;
+    CMarkup xml;
 
-        bool fileExists = xml.Load("users.xml");
+    bool fileExists = xml.Load("users.xml");
 
-        if (!fileExists)
-        {
-            xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
-            xml.AddElem("Users");
-        }
-
-        xml.FindElem();
-        xml.IntoElem();
-        xml.AddElem("User");
-        xml.IntoElem();
-        xml.AddElem("UserId", user.getUserId());
-        xml.AddElem("Login", user.getLogin());
-        xml.AddElem("Password", user.getPassword());
-        xml.AddElem("Name", user.getName());
-        xml.AddElem("Surname", user.getSurname());
-
-        xml.Save("users.xml");
+    if (!fileExists)
+    {
+        xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
+        xml.AddElem("Users");
     }
+
+    xml.FindElem();
+    xml.IntoElem();
+    xml.AddElem("User");
+    xml.IntoElem();
+    xml.AddElem("UserId", user.getUserId());
+    xml.AddElem("Login", user.getLogin());
+    xml.AddElem("Password", user.getPassword());
+    xml.AddElem("Name", user.getName());
+    xml.AddElem("Surname", user.getSurname());
+
+    xml.Save("users.xml");
+}
 
 vector<Users> UsersFile::loadFromFile()
 {
@@ -59,4 +59,16 @@ vector<Users> UsersFile::loadFromFile()
     }
 
     return users;
+}
+
+void UsersFile::removeElementFromFile(int idOfLoggedUser)
+{
+    CMarkup xml;
+    xml.Load("users.xml");
+
+    xml.ResetPos();
+    xml.FindElem();
+    xml.IntoElem();
+    xml.RemoveElem();
+
 }
