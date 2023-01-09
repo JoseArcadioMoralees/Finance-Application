@@ -95,7 +95,7 @@ void FinancialManager::totalBalance()
     for (unsigned int i = 0; i < incomes.size(); i++)
     {
         cout << "Rodzaj: " << incomes[i].getItem() << " | "
-             << "Kwota: " << incomes[i].getAmount() << " | "
+             << "Kwota: " << fixed << setprecision(2) << incomes[i].getAmount() << " | "
              << "Data: " << AuxiliaryFunctions::addHyphenToDate(incomes[i].getDate()) << endl;
     }
     cout << endl
@@ -105,7 +105,7 @@ void FinancialManager::totalBalance()
     for (unsigned int i = 0; i < expenses.size(); i++)
     {
         cout << "Rodzaj: " << expenses[i].getItem() << " | "
-             << "Kwota: " << expenses[i].getAmount() << " | "
+             << "Kwota: " << fixed << setprecision(2) << expenses[i].getAmount() << " | "
              << "Data: " << AuxiliaryFunctions::addHyphenToDate(expenses[i].getDate()) << endl;
     }
     cout << endl;
@@ -159,7 +159,7 @@ void FinancialManager::periodBalance()
         if (incomes[i].getDate() >= startDate && incomes[i].getDate() <= endDate)
         {
             cout << "Rodzaj: " << incomes[i].getItem() << " | "
-                 << "Kwota: " << incomes[i].getAmount() << " | "
+                 << "Kwota: " << fixed << setprecision(2) << incomes[i].getAmount() << " | "
                  << "Data: " << AuxiliaryFunctions::addHyphenToDate(incomes[i].getDate()) << endl;
         }
     }
@@ -172,7 +172,7 @@ void FinancialManager::periodBalance()
         if (expenses[i].getDate() >= startDate && expenses[i].getDate() <= endDate)
         {
             cout << "Rodzaj: " << expenses[i].getItem() << " | "
-                 << "Kwota: " << expenses[i].getAmount() << " | "
+                 << "Kwota: " << fixed << setprecision(2) << expenses[i].getAmount() << " | "
                  << "Data: " << AuxiliaryFunctions::addHyphenToDate(expenses[i].getDate()) << endl;
         }
     }
@@ -213,9 +213,6 @@ void FinancialManager::currentMonthBalance()
     currentDate.replace(8, 2, daysOfMonth);
     endDate = currentDate;
 
-    cout << startDate << endl;
-    cout << endDate << endl;
-
     startDate.erase(remove(startDate.begin(), startDate.end(), '-'), startDate.end());
     endDate.erase(remove(endDate.begin(), endDate.end(), '-'), endDate.end());
 
@@ -243,7 +240,7 @@ void FinancialManager::currentMonthBalance()
         if (incomes[i].getDate() >= startDate && incomes[i].getDate() <= endDate)
         {
             cout << "Rodzaj: " << incomes[i].getItem() << " | "
-                 << "Kwota: " << incomes[i].getAmount() << " | "
+                 << "Kwota: " << fixed << setprecision(2) << incomes[i].getAmount() << " | "
                  << "Data: " << AuxiliaryFunctions::addHyphenToDate(incomes[i].getDate()) << endl;
         }
     }
@@ -256,7 +253,7 @@ void FinancialManager::currentMonthBalance()
         if (expenses[i].getDate() >= startDate && expenses[i].getDate() <= endDate)
         {
             cout << "Rodzaj: " << expenses[i].getItem() << " | "
-                 << "Kwota: " << expenses[i].getAmount() << " | "
+                 << "Kwota: " << fixed << setprecision(2) << expenses[i].getAmount() << " | "
                  << "Data: " << AuxiliaryFunctions::addHyphenToDate(expenses[i].getDate()) << endl;
         }
     }
@@ -299,9 +296,6 @@ void FinancialManager::lastMonthBalance()
     currentDate.replace(8, 2, daysOfMonth);
     endDate = currentDate;
 
-    cout << startDate << endl;
-    cout << endDate << endl;
-
     startDate.erase(remove(startDate.begin(), startDate.end(), '-'), startDate.end());
     endDate.erase(remove(endDate.begin(), endDate.end(), '-'), endDate.end());
 
@@ -329,7 +323,7 @@ void FinancialManager::lastMonthBalance()
         if (incomes[i].getDate() >= startDate && incomes[i].getDate() <= endDate)
         {
             cout << "Rodzaj: " << incomes[i].getItem() << " | "
-                 << "Kwota: " << incomes[i].getAmount() << " | "
+                 << "Kwota: " << fixed << setprecision(2) << incomes[i].getAmount() << " | "
                  << "Data: " << AuxiliaryFunctions::addHyphenToDate(incomes[i].getDate()) << endl;
         }
     }
@@ -342,7 +336,7 @@ void FinancialManager::lastMonthBalance()
         if (expenses[i].getDate() >= startDate && expenses[i].getDate() <= endDate)
         {
             cout << "Rodzaj: " << expenses[i].getItem() << " | "
-                 << "Kwota: " << expenses[i].getAmount() << " | "
+                 << "Kwota: " << fixed << setprecision(2) << expenses[i].getAmount() << " | "
                  << "Data: " << AuxiliaryFunctions::addHyphenToDate(expenses[i].getDate()) << endl;
         }
     }
