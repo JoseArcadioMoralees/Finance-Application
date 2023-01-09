@@ -23,6 +23,9 @@ void FinancialManager::addIncome()
     income.setDate(getDate());
 
     incomesFile.saveToFile(income);
+
+    cout << "Dodano przychod" << endl;
+    system("Pause"); 
 }
 
 void FinancialManager::loadIncome()
@@ -54,6 +57,9 @@ void FinancialManager::addExpense()
     expense.setDate(getDate());
 
     expensesFile.saveToFile(expense);
+
+    cout << "Dodano wydatek" << endl;
+    system("Pause");
 }
 
 void FinancialManager::loadExpense()

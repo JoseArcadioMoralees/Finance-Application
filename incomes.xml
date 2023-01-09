@@ -63,4 +63,11 @@
 <amount>34.00</amount>
 <date>2019-02-28</date>
 </income>
+<income>
+<userId>1</userId>
+<incomesId>10</incomesId>
+<item>etgrtg</item>
+<amount>324.00</amount>
+<date>2016-02-19</date>
+</income>
 </incomes>
