@@ -7,6 +7,7 @@ using namespace std;
 
 int main()
 {
+
   FinanceApplication financeApplication;
 
   system("cls");

@@ -4,6 +4,7 @@
 #include <ctime>
 #include <vector>
 #include <string>
+#include <algorithm>
 #include "Users.h"
 
 using namespace std;
