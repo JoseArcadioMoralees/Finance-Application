@@ -60,15 +60,3 @@ vector<Users> UsersFile::loadFromFile()
 
     return users;
 }
-
-void UsersFile::removeElementFromFile(int idOfLoggedUser)
-{
-    CMarkup xml;
-    xml.Load("users.xml");
-
-    xml.ResetPos();
-    xml.FindElem();
-    xml.IntoElem();
-    xml.RemoveElem();
-
-}

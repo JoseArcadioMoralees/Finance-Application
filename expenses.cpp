@@ -2,23 +2,23 @@
 
 int Expenses::getUserId()
 {
-    return userId; 
+    return userId;
 }
 int Expenses::getExpenseId()
 {
-    return expenseId; 
+    return expenseId;
 }
 double Expenses::getAmount()
 {
-    return amount; 
+    return amount;
 }
 string Expenses::getDate()
 {
-    return date; 
+    return date;
 }
 string Expenses::getItem()
 {
-    return item; 
+    return item;
 }
 void Expenses::setUserId(int USERID)
 {
@@ -26,17 +26,17 @@ void Expenses::setUserId(int USERID)
 }
 void Expenses::setExpenseId(int INCOMEID)
 {
-    expenseId = INCOMEID; 
+    expenseId = INCOMEID;
 }
 void Expenses::setAmount(double AMOUNT)
 {
-    amount = AMOUNT; 
+    amount = AMOUNT;
 }
 void Expenses::setDate(string DATE)
 {
-    date = DATE; 
+    date = DATE;
 }
 void Expenses::setItem(string ITEM)
 {
-    item = ITEM; 
+    item = ITEM;
 }

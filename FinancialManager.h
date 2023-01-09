@@ -11,38 +11,31 @@
 #include "IncomesFile.h"
 #include "AuxiliaryFunctions.h"
 
-
 class FinancialManager
 {
-    const int ID_OF_LOGGED_USER; 
+    const int ID_OF_LOGGED_USER;
 
-    IncomesFile incomesFile;  
-    ExpensesFile expensesFile; 
+    IncomesFile incomesFile;
+    ExpensesFile expensesFile;
     string getDate();
-    int getIdOfLastIncome(); 
+    int getIdOfLastIncome();
     int getIdOfLastExpense();
     void totalBalance();
-    void periodBalance();  
+    void periodBalance();
     void currentMonthBalance();
     void lastMonthBalance();
-    void loadIncome(); 
-    void loadExpense(); 
-    map<string, string>DaysOfMonth; 
-    void daysOfMonth(); 
+    void loadIncome();
+    void loadExpense();
+    map<string, string> DaysOfMonth;
+    void daysOfMonth();
     string minusOneMonth(string date);
-    
-    
 
 public:
-    FinancialManager(int id_of_logged_user): ID_OF_LOGGED_USER(id_of_logged_user) {}
+    FinancialManager(int id_of_logged_user) : ID_OF_LOGGED_USER(id_of_logged_user) {}
 
-    void addIncome(); 
-    void addExpense(); 
-    void balance(); 
-     
-    
-    
+    void addIncome();
+    void addExpense();
+    void balance();
 };
-
 
 #endif

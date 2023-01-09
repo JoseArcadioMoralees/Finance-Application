@@ -1,9 +1,8 @@
 #include "Users.h"
 
-
 int Users::getUserId()
 {
-    return userId; 
+    return userId;
 }
 
 string Users::getLogin()
@@ -18,7 +17,7 @@ string Users::getPassword()
 
 string Users::getName()
 {
-    return name; 
+    return name;
 }
 
 string Users::getSurname()
@@ -28,25 +27,25 @@ string Users::getSurname()
 
 void Users::setUserId(int USERID)
 {
-    userId = USERID; 
+    userId = USERID;
 }
 
 void Users::setLogin(string LOGIN)
 {
-    login = LOGIN; 
+    login = LOGIN;
 }
 
 void Users::setPassword(string PASSWORD)
 {
-    password = PASSWORD; 
+    password = PASSWORD;
 }
 
 void Users::setName(string NAME)
 {
-    name = NAME; 
+    name = NAME;
 }
 
 void Users::setSurname(string SURNAME)
 {
-    surname = SURNAME; 
+    surname = SURNAME;
 }

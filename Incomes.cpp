@@ -2,23 +2,23 @@
 
 int Incomes::getUserId()
 {
-    return userId; 
+    return userId;
 }
 int Incomes::getIncomeId()
 {
-    return incomeId; 
+    return incomeId;
 }
 double Incomes::getAmount()
 {
-    return amount; 
+    return amount;
 }
 string Incomes::getDate()
 {
-    return date; 
+    return date;
 }
 string Incomes::getItem()
 {
-    return item; 
+    return item;
 }
 void Incomes::setUserId(int USERID)
 {
@@ -26,17 +26,17 @@ void Incomes::setUserId(int USERID)
 }
 void Incomes::setIncomeId(int INCOMEID)
 {
-    incomeId = INCOMEID; 
+    incomeId = INCOMEID;
 }
 void Incomes::setAmount(double AMOUNT)
 {
-    amount = AMOUNT; 
+    amount = AMOUNT;
 }
 void Incomes::setDate(string DATE)
 {
-    date = DATE; 
+    date = DATE;
 }
 void Incomes::setItem(string ITEM)
 {
-    item = ITEM; 
+    item = ITEM;
 }

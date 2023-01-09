@@ -1,19 +1,18 @@
 #ifndef USERS_H
 #define USERS_H
-#include<iostream>
+#include <iostream>
 
-
-using namespace std; 
+using namespace std;
 
 class Users
 {
     int userId;
-    string login, password, name, surname; 
+    string login, password, name, surname;
 
 public:
     int getUserId();
     string getLogin();
-    string getPassword(); 
+    string getPassword();
     string getName();
     string getSurname();
 
@@ -21,7 +20,7 @@ public:
     void setLogin(string);
     void setPassword(string);
     void setName(string);
-    void setSurname(string); 
+    void setSurname(string);
 };
 
 #endif

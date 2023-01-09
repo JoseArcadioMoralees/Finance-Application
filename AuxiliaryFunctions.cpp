@@ -23,7 +23,6 @@ char AuxiliaryFunctions::loadCharacter()
     return character;
 }
 
-
 string AuxiliaryFunctions::currentDate()
 {
     string date, year, month, day;
@@ -59,73 +58,121 @@ string AuxiliaryFunctions::currentDate()
 
 bool AuxiliaryFunctions::checkDate(string date)
 {
+    bool flag = true;
+    string dateWithoutHyphens = date;
+    dateWithoutHyphens.erase(4, 1);
+    dateWithoutHyphens.erase(6, 1);
+    string lastPossibleDate = AuxiliaryFunctions::currentDate();
+    lastPossibleDate.replace(8, 2, "31");
+
+    for (unsigned int i = 0; i < dateWithoutHyphens.size(); i++)
+    {
+        if (dateWithoutHyphens[i] < 44 || dateWithoutHyphens[i] > 57)
+        {
+            cout << "W ktoryms miejscu wpisano cos innego niz cyfry." << endl;
+            flag = false;
+            break;
+        }
+    }
+    if (date.size() < 10)
+    {
+        cout << "Podano za mala ilosc znakow." << endl;
+        flag = false;
+    }
+    if (date.size() > 10)
+    {
+        cout << "Podano za duza ilosc znakow." << endl;
+        flag = false;
+    }
     if (date[4] != '-' || date[7] != '-')
     {
         cout << "Bledny zapis myslnikow (-) w dacie. Sprobuj ponownie." << endl;
-        return false;
+        flag = false;
     }
-    else if ((date[5] == '0' &&
-              (date[6] == '1' || date[6] == '3' || date[6] == '5' || date[6] == '7' || date[6] == '8')) &&
-             (date[8] >= '3' && date[9] > '1'))
+    if ((date[5] == '0' &&
+         (date[6] == '1' || date[6] == '3' || date[6] == '5' || date[6] == '7' || date[6] == '8')) &&
+        (date[8] >= '3' && date[9] > '1'))
     {
         cout << "Ten miesiac nie ma tylu dni. Sprobuj ponownie." << endl;
-        return false;
+        flag = false;
     }
-    else if ((date[5] == '0' &&
-              (date[6] == '4' || date[6] == '6' || date[6] == '9')) &&
-             (date[8] >= '3' && date[9] > '0'))
+    if ((date[5] == '0' &&
+         (date[6] == '4' || date[6] == '6' || date[6] == '9')) &&
+        (date[8] >= '3' && date[9] > '0'))
     {
         cout << "Ten miesiac nie ma tylu dni. Sprobuj ponownie." << endl;
-        return false;
+        flag = false;
     }
-    else if ((date[5] == '0' &&
-              (date[6] == '2')) &&
-             (date[8] >= '2' && date[9] > '8'))
+    if ((date[5] == '1' &&
+         (date[6] == '0')) &&
+        (date[8] >= '3' && date[9] > '1'))
     {
         cout << "Ten miesiac nie ma tylu dni. Sprobuj ponownie." << endl;
-        return false;
+        flag = false;
     }
-    else if ((date[5] == '1' &&
-              (date[6] == '0')) &&
-             (date[8] >= '3' && date[9] > '1'))
+    if ((date[5] == '1' &&
+         (date[6] == '1')) &&
+        (date[8] >= '3' && date[9] > '0'))
     {
         cout << "Ten miesiac nie ma tylu dni. Sprobuj ponownie." << endl;
-        return false;
+        flag = false;
     }
-    else if ((date[5] == '1' &&
-              (date[6] == '1')) &&
-             (date[8] >= '3' && date[9] > '0'))
+    if ((date[5] == '1' &&
+         (date[6] == '2')) &&
+        (date[8] >= '3' && date[9] > '1'))
     {
         cout << "Ten miesiac nie ma tylu dni. Sprobuj ponownie." << endl;
-        return false;
+        flag = false;
     }
-    else if ((date[5] == '1' &&
-              (date[6] == '2')) &&
-             (date[8] >= '3' && date[9] > '1'))
+    if (dateWithoutHyphens < "20000101")
     {
-        cout << "Ten miesiac nie ma tylu dni. Sprobuj ponownie." << endl;
-        return false;
+        cout << "Data jest wczesniejsza niz 2000-01-01. Podaj pozniejsza date." << endl;
+        flag = false;
     }
+    if (date > lastPossibleDate)
+    {
+        cout << "Zbyt pozna data. Ostatnia mozliwa data to ostatni dzien biezacego miesiaca." << endl;
+        flag = false;
+    }
+    dateWithoutHyphens = dateWithoutHyphens.erase(4, 4);
+    int year = stoi(dateWithoutHyphens);
 
+    if (year % 4 != 0)
+    {
+        if ((date[5] == '0' &&
+             (date[6] == '2')) &&
+            (date[8] >= '2' && date[9] > '8'))
+        {
+            cout << "Ten miesiac nie ma tylu dni. Sprobuj ponownie." << endl;
+            flag = false;
+        }
+    }
     else
     {
-        return true;
+        if ((date[5] == '0' &&
+             (date[6] == '2')) &&
+            (date[8] >= '2' && date[9] > '9'))
+        {
+            cout << "Ten miesiac nie ma tylu dni. Sprobuj ponownie." << endl;
+            flag = false;
+        }
     }
+
+    return flag;
 }
 
 string AuxiliaryFunctions::prepareToSaveToFile(double amount)
 {
-    string amountStr = to_string(amount); 
+    string amountStr = to_string(amount);
     size_t pos = amountStr.find(".");
     amountStr.erase(pos + 3, 10);
-    return amountStr; 
+    return amountStr;
 }
 
 string AuxiliaryFunctions::addHyphenToDate(string date)
 {
     // 2022-0612
-    date = date.insert(4, "-"); 
-    date = date.insert(7, "-"); 
-    return date; 
-
+    date = date.insert(4, "-");
+    date = date.insert(7, "-");
+    return date;
 }
