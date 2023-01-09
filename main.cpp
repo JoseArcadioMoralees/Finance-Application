@@ -22,7 +22,6 @@ int main()
       cout << "---------------------------" << endl;
       cout << "1. Rejestracja" << endl;
       cout << "2. Logowanie" << endl;
-      cout << "3. Pokaz uzytkownikow" << endl;
       cout << "9. Koniec programu" << endl;
       cout << "---------------------------" << endl;
       cout << "Twoj wybor: ";
@@ -35,9 +34,6 @@ int main()
         break;
       case '2':
         financeApplication.logAUser();
-        break;
-      case '3':
-        financeApplication.showUsers();
         break;
       case '9':
         exit(0);
