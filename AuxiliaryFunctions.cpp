@@ -23,7 +23,6 @@ char AuxiliaryFunctions::loadCharacter()
     return character;
 }
 
-
 string AuxiliaryFunctions::currentDate()
 {
     string date, year, month, day;
@@ -115,17 +114,16 @@ bool AuxiliaryFunctions::checkDate(string date)
 
 string AuxiliaryFunctions::prepareToSaveToFile(double amount)
 {
-    string amountStr = to_string(amount); 
+    string amountStr = to_string(amount);
     size_t pos = amountStr.find(".");
     amountStr.erase(pos + 3, 10);
-    return amountStr; 
+    return amountStr;
 }
 
 string AuxiliaryFunctions::addHyphenToDate(string date)
 {
     // 2022-0612
-    date = date.insert(4, "-"); 
-    date = date.insert(7, "-"); 
-    return date; 
-
+    date = date.insert(4, "-");
+    date = date.insert(7, "-");
+    return date;
 }

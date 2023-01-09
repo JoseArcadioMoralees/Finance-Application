@@ -95,37 +95,37 @@ void UsersManager::showUsers()
         cout << "Surname: " << users[i].getSurname() << endl
              << endl;
     }
-    system("Pause"); 
+    system("Pause");
 }
 
 bool UsersManager::checkLogin(string login, vector<Users> users)
 {
-    bool flag = false; 
+    bool flag = false;
     for (unsigned int i = 0; i < users.size(); i++)
     {
         if (login == users[i].getLogin())
         {
-            flag = true; 
+            flag = true;
             break;
         }
     }
 
-    return flag; 
+    return flag;
 }
 
 bool UsersManager::checkPassword(string password, vector<Users> users)
 {
-    bool flag = false; 
+    bool flag = false;
     for (unsigned int i = 0; i < users.size(); i++)
     {
         if (usersLogin == users[i].getLogin() && password == users[i].getPassword())
         {
             idOfLoggedUser = users[i].getUserId();
-            flag = true; 
+            flag = true;
             break;
         }
     }
-    return flag; 
+    return flag;
 }
 
 string UsersManager::checkIfLoginExists()
@@ -141,71 +141,71 @@ string UsersManager::checkIfLoginExists()
         if (users.size() != 0)
         {
             for (unsigned int i = 0; i < users.size(); i++)
-        {
-            if (login != users[i].getLogin())
             {
-                flag = true;
-                
-            } else 
-            {
-                flag = false; 
-                cout << "Taki login istnieje. Podaj inny." << endl; 
-                break; 
+                if (login != users[i].getLogin())
+                {
+                    flag = true;
+                }
+                else
+                {
+                    flag = false;
+                    cout << "Taki login istnieje. Podaj inny." << endl;
+                    break;
+                }
             }
         }
-        } else 
+        else
         {
-            flag = true; 
+            flag = true;
         }
-        
-    } while (flag == false); 
 
-    return login; 
+    } while (flag == false);
+
+    return login;
 }
 
 int UsersManager::addUsersId()
 {
 
-    if(users.size() != 0)
+    if (users.size() != 0)
     {
-        idOfLastUser = users.back().getUserId() + 1; 
-    } else
-    {
-        idOfLastUser++; 
+        idOfLastUser = users.back().getUserId() + 1;
     }
-    
-    return idOfLastUser; 
+    else
+    {
+        idOfLastUser++;
+    }
+
+    return idOfLastUser;
 }
 int UsersManager::getIdOfLoggedUser()
 {
-    return idOfLoggedUser; 
+    return idOfLoggedUser;
 }
 void UsersManager::setIdOfLoggedUser(int id_of_logged_user)
 {
-    idOfLoggedUser = id_of_logged_user; 
+    idOfLoggedUser = id_of_logged_user;
 }
 
 void UsersManager::changePassword()
 {
-    Users user; 
-    string newPassword; 
+    Users user;
+    string newPassword;
 
-    for(unsigned int i = 0; i < users.size(); i++)
+    for (unsigned int i = 0; i < users.size(); i++)
     {
-        if(idOfLoggedUser == users[i].getUserId())
+        if (idOfLoggedUser == users[i].getUserId())
         {
             cout << "Podaj nowe haslo: ";
-            cin >> newPassword; 
-            users[i].setPassword(newPassword); 
+            cin >> newPassword;
+            users[i].setPassword(newPassword);
         }
     }
-    remove("users.xml"); 
+    remove("users.xml");
 
     for (unsigned j = 0; j < users.size(); j++)
     {
         user = users[j];
-        usersFile.saveToFile(user); 
+        usersFile.saveToFile(user);
     }
-    
-
 }

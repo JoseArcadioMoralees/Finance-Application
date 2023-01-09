@@ -1,7 +1,5 @@
 #include <iostream>
 #include "FinanceApplication.h"
-#include "UsersManager.h"
-#include "FinancialManager.h"
 #include <string>
 #include <vector>
 
@@ -10,12 +8,8 @@ using namespace std;
 int main()
 {
   FinanceApplication financeApplication;
-  UsersManager usersManager;
 
-  
-
-
-   system("cls");
+  system("cls");
 
   while (true)
   {

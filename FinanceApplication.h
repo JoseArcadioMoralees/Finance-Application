@@ -8,7 +8,7 @@ using namespace std;
 class FinanceApplication
 {
     UsersManager usersManager;  
-    int idOfLoggedUser = usersManager.getIdOfLoggedUser();  
+    int idOfLoggedUser; 
     FinancialManager *financialManager;
 public:
     FinanceApplication()

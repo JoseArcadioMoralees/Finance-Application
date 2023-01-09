@@ -57,7 +57,8 @@ vector<Incomes> IncomesFile::LoadFromFile(int ID_OF_LOGGED_USER)
                 xml.OutOfElem();
 
                 incomes.push_back(income);
-            } else
+            }
+            else
             {
                 xml.OutOfElem();
             }

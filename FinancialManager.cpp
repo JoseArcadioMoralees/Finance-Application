@@ -276,7 +276,7 @@ void FinancialManager::lastMonthBalance()
     incomes = incomesFile.LoadFromFile(ID_OF_LOGGED_USER);
     expenses = expensesFile.LoadFromFile(ID_OF_LOGGED_USER);
     currentDate = AuxiliaryFunctions::currentDate();
-    currentDate = minusOneMonth(currentDate); 
+    currentDate = minusOneMonth(currentDate);
 
     month = currentDate[5];
     month = month + currentDate[6];
@@ -357,7 +357,7 @@ void FinancialManager::balance()
     cout << "1. Calkowity." << endl;
     cout << "2. Z wybranego okresu." << endl;
     cout << "3. Z obecnego miesiaca." << endl;
-    cout << "4. Z poprzedniego miesiaca." << endl; 
+    cout << "4. Z poprzedniego miesiaca." << endl;
     cin >> option;
 
     switch (option)
@@ -370,7 +370,7 @@ void FinancialManager::balance()
         break;
     case '3':
         currentMonthBalance();
-        break; 
+        break;
     case '4':
         lastMonthBalance();
         break;
@@ -490,6 +490,5 @@ string FinancialManager::minusOneMonth(string date)
         date.replace(0, 4, year);
     }
 
-    return date; 
+    return date;
 }
-

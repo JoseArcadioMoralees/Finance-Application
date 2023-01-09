@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incomes>
+<income>
+<userId>1</userId>
+<incomesId>1</incomesId>
+<item>jakis</item>
+<amount>12321.00</amount>
+<date>2023-01-09</date>
+</income>
+</incomes>
