@@ -171,8 +171,68 @@ string AuxiliaryFunctions::prepareToSaveToFile(double amount)
 
 string AuxiliaryFunctions::addHyphenToDate(string date)
 {
-    // 2022-0612
     date = date.insert(4, "-");
     date = date.insert(7, "-");
     return date;
 }
+
+map<string, string> AuxiliaryFunctions::daysOfMonth()
+{
+    map<string, string> DaysOfMonth;
+    DaysOfMonth["01"] = "31";
+    DaysOfMonth["02"] = "28";
+    DaysOfMonth["03"] = "31";
+    DaysOfMonth["04"] = "30";
+    DaysOfMonth["05"] = "31";
+    DaysOfMonth["06"] = "30";
+    DaysOfMonth["07"] = "31";
+    DaysOfMonth["08"] = "31";
+    DaysOfMonth["09"] = "30";
+    DaysOfMonth["10"] = "31";
+    DaysOfMonth["11"] = "30";
+    DaysOfMonth["12"] = "31";
+    return DaysOfMonth; 
+}
+
+string AuxiliaryFunctions::minusOneMonth(string date)
+{
+    string month = "";
+    string year = "";
+    int tempMonth;
+    int tempYear;
+
+    if (date[5] != '0' || date[6] != '1')
+    {
+        month = date[5];
+        month = month + date[6];
+        tempMonth = stoi(month);
+        tempMonth--;
+        if (tempMonth < 10)
+        {
+            month = '0';
+            month += to_string(tempMonth);
+        }
+        else
+        {
+            month = to_string(tempMonth);
+        }
+        date.replace(5, 2, month);
+    }
+    else
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            year += date[i];
+        }
+        tempYear = stoi(year);
+        tempYear--;
+
+        year = to_string(tempYear);
+        date.replace(5, 2, "12");
+        date.replace(0, 4, year);
+    }
+
+    return date;
+}
+
+

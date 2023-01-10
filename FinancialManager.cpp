@@ -28,11 +28,6 @@ void FinancialManager::addIncome()
     system("Pause"); 
 }
 
-void FinancialManager::loadIncome()
-{
-    incomesFile.LoadFromFile(ID_OF_LOGGED_USER);
-}
-
 void FinancialManager::addExpense()
 {
     Expenses expense;
@@ -60,11 +55,6 @@ void FinancialManager::addExpense()
 
     cout << "Dodano wydatek" << endl;
     system("Pause");
-}
-
-void FinancialManager::loadExpense()
-{
-    expensesFile.LoadFromFile(ID_OF_LOGGED_USER);
 }
 
 void FinancialManager::totalBalance()
@@ -197,10 +187,10 @@ void FinancialManager::currentMonthBalance()
     incomes = incomesFile.LoadFromFile(ID_OF_LOGGED_USER);
     expenses = expensesFile.LoadFromFile(ID_OF_LOGGED_USER);
     currentDate = AuxiliaryFunctions::currentDate();
+    map<string, string> DaysOfMonth = AuxiliaryFunctions::daysOfMonth(); 
 
     month = currentDate[5];
     month = month + currentDate[6];
-    FinancialManager::daysOfMonth();
     for (map<string, string>::iterator itr = DaysOfMonth.begin(); itr != DaysOfMonth.end(); itr++)
     {
         if (month == itr->first)
@@ -275,15 +265,15 @@ void FinancialManager::lastMonthBalance()
     double sumOfIncomes = 0;
     double balance;
     string startDate, endDate, daysOfMonth, currentDate, month;
+    map<string, string> DaysOfMonth = AuxiliaryFunctions::daysOfMonth(); 
 
     incomes = incomesFile.LoadFromFile(ID_OF_LOGGED_USER);
     expenses = expensesFile.LoadFromFile(ID_OF_LOGGED_USER);
     currentDate = AuxiliaryFunctions::currentDate();
-    currentDate = minusOneMonth(currentDate);
+    currentDate = AuxiliaryFunctions::minusOneMonth(currentDate);
 
     month = currentDate[5];
     month = month + currentDate[6];
-    FinancialManager::daysOfMonth();
     for (map<string, string>::iterator itr = DaysOfMonth.begin(); itr != DaysOfMonth.end(); itr++)
     {
         if (month == itr->first)
@@ -434,61 +424,4 @@ int FinancialManager::getIdOfLastExpense()
     }
 
     return ++idOfLastExpense;
-}
-
-void FinancialManager::daysOfMonth()
-{
-    DaysOfMonth["01"] = "31";
-    DaysOfMonth["02"] = "28";
-    DaysOfMonth["03"] = "31";
-    DaysOfMonth["04"] = "30";
-    DaysOfMonth["05"] = "31";
-    DaysOfMonth["06"] = "30";
-    DaysOfMonth["07"] = "31";
-    DaysOfMonth["08"] = "31";
-    DaysOfMonth["09"] = "30";
-    DaysOfMonth["10"] = "31";
-    DaysOfMonth["11"] = "30";
-    DaysOfMonth["12"] = "31";
-}
-
-string FinancialManager::minusOneMonth(string date)
-{
-    string month = "";
-    string year = "";
-    int tempMonth;
-    int tempYear;
-
-    if (date[5] != '0' || date[6] != '1')
-    {
-        month = date[5];
-        month = month + date[6];
-        tempMonth = stoi(month);
-        tempMonth--;
-        if (tempMonth < 10)
-        {
-            month = '0';
-            month += to_string(tempMonth);
-        }
-        else
-        {
-            month = to_string(tempMonth);
-        }
-        date.replace(5, 2, month);
-    }
-    else
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            year += date[i];
-        }
-        tempYear = stoi(year);
-        tempYear--;
-
-        year = to_string(tempYear);
-        date.replace(5, 2, "12");
-        date.replace(0, 4, year);
-    }
-
-    return date;
 }

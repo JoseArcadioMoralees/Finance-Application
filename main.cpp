@@ -1,5 +1,6 @@
 #include <iostream>
 #include "FinanceApplication.h"
+#include <string>
 
 using namespace std;
 

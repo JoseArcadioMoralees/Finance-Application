@@ -24,11 +24,6 @@ class FinancialManager
     void periodBalance();
     void currentMonthBalance();
     void lastMonthBalance();
-    void loadIncome();
-    void loadExpense();
-    map<string, string> DaysOfMonth;
-    void daysOfMonth();
-    string minusOneMonth(string date);
 
 public:
     FinancialManager(int id_of_logged_user) : ID_OF_LOGGED_USER(id_of_logged_user) {}
