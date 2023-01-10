@@ -7,4 +7,11 @@
 <Name>rr</Name>
 <Surname>ww</Surname>
 </User>
+<User>
+<UserId>2</UserId>
+<Login>radek</Login>
+<Password>1234</Password>
+<Name>rr</Name>
+<Surname>ww</Surname>
+</User>
 </Users>

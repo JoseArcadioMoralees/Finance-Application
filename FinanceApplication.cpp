@@ -8,8 +8,7 @@ void FinanceApplication::registerNewUser()
 void FinanceApplication::logAUser()
 {
     usersManager.logAUser();
-    idOfLoggedUser  = usersManager.getIdOfLoggedUser(); 
-    financialManager = new FinancialManager(idOfLoggedUser); 
+    financialManager = new FinancialManager(usersManager.getIdOfLoggedUser()); 
 }
 
 void FinanceApplication::showUsers()
