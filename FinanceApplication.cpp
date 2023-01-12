@@ -11,10 +11,6 @@ void FinanceApplication::logAUser()
     financialManager = new FinancialManager(usersManager.getIdOfLoggedUser()); 
 }
 
-void FinanceApplication::showUsers()
-{
-    usersManager.showUsers();
-}
 
 int FinanceApplication::getIdOfLoggedUser()
 {

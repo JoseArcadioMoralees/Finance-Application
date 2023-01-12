@@ -175,13 +175,6 @@ string AuxiliaryFunctions::prepareToSaveToFile(double amount)
     return amountStr;
 }
 
-string AuxiliaryFunctions::addHyphenToDate(string date)
-{
-    date = date.insert(4, "-");
-    date = date.insert(7, "-");
-    return date;
-}
-
 map<string, string> AuxiliaryFunctions::daysOfMonth()
 {
     map<string, string> DaysOfMonth;

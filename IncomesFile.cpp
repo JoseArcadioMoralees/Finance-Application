@@ -2,8 +2,6 @@
 
 void IncomesFile::saveToFile(Incomes income)
 {
-    CMarkup xml;
-
     bool fileExists = xml.Load("incomes.xml");
 
     if (!fileExists)
@@ -27,7 +25,6 @@ void IncomesFile::saveToFile(Incomes income)
 
 vector<Incomes> IncomesFile::LoadFromFile(int ID_OF_LOGGED_USER)
 {
-    CMarkup xml;
     Incomes income;
     vector<Incomes> incomes;
 

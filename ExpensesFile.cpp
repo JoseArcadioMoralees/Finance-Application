@@ -2,7 +2,6 @@
 
 void ExpensesFile::saveToFile(Expenses expense)
 {
-    CMarkup xml;
 
     bool fileExists = xml.Load("expenses.xml");
 
@@ -27,7 +26,6 @@ void ExpensesFile::saveToFile(Expenses expense)
 
 vector<Expenses> ExpensesFile::LoadFromFile(int ID_OF_LOGGED_USER)
 {
-    CMarkup xml;
     Expenses expense;
     vector<Expenses> expenses;
 

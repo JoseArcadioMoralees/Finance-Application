@@ -10,6 +10,8 @@
 
 class IncomesFile
 {
+    CMarkup xml;
+    
 public:
     void saveToFile(Incomes income);
     vector<Incomes> LoadFromFile(int ID_OF_LOGGED_USER);

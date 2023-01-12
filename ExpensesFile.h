@@ -9,6 +9,8 @@
 
 class ExpensesFile
 {
+    CMarkup xml;
+    
 public:
     void saveToFile(Expenses expense); 
     vector<Expenses> LoadFromFile(int ID_OF_LOGGED_USER); 

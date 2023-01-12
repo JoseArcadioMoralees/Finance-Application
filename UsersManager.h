@@ -13,7 +13,7 @@ class UsersManager
     string usersPassword;
     int idOfLoggedUser;
     int idOfLastUser;
-    vector<Users> users = usersFile.loadFromFile();
+    vector<Users> users;
     UsersFile usersFile;
     bool checkLogin(string login, vector<Users> users);
     bool checkPassword(string password, vector<Users> users);
@@ -25,11 +25,11 @@ public:
     {
         idOfLastUser = 0;
         idOfLoggedUser = 0;
+        vector<Users> users = usersFile.loadFromFile();
     }
 
     void registerNewUser();
     void logAUser();
-    void showUsers();
     int getIdOfLoggedUser();
     void setIdOfLoggedUser(int id_of_logged_user);
     void changePassword();

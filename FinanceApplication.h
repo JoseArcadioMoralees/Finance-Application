@@ -23,7 +23,6 @@ public:
 
     void registerNewUser();
     void logAUser(); 
-    void showUsers();
     int getIdOfLoggedUser(); 
     void logOut(); 
     void addIncome();
