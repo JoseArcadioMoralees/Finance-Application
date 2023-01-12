@@ -9,8 +9,7 @@ using namespace std;
 
 class UsersFile
 {
-    CMarkup xml;
-    
+
 public:
     void saveToFile(Users user);
     vector<Users> loadFromFile();

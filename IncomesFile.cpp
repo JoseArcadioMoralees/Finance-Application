@@ -64,3 +64,31 @@ vector<Incomes> IncomesFile::LoadFromFile(int ID_OF_LOGGED_USER)
 
     return incomes;
 }
+
+int IncomesFile::loadIdOfLastIncomeFromFile()
+{
+    idOfLastIncome = 0;
+    if (xml.Load("incomes.xml"))
+    {
+        xml.FindElem();
+        xml.IntoElem();
+        while (xml.FindElem("income"))
+        {
+            xml.IntoElem();
+            xml.FindElem("incomesId");
+            idOfLastIncome = (stoi(xml.GetData()));
+            xml.OutOfElem();
+        }
+    }
+    return ++idOfLastIncome;
+}
+
+int IncomesFile::getIdOfLastIncome()
+{
+    return idOfLastIncome; 
+}
+
+void IncomesFile::setIdOfLastIncome(int id_of_last_income)
+{
+    idOfLastIncome = ++id_of_last_income; 
+}

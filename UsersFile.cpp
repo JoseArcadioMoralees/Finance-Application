@@ -2,6 +2,7 @@
 
 void UsersFile::saveToFile(Users user)
 {
+    CMarkup xml;
     bool fileExists = xml.Load("users.xml");
 
     if (!fileExists)
@@ -25,6 +26,7 @@ void UsersFile::saveToFile(Users user)
 
 vector<Users> UsersFile::loadFromFile()
 {
+    CMarkup xml;
     Users user;
     vector<Users> users;
 

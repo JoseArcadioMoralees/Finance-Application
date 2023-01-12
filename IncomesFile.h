@@ -11,10 +11,17 @@
 class IncomesFile
 {
     CMarkup xml;
-    
+    int idOfLastIncome; 
+    int loadIdOfLastIncomeFromFile();
 public:
+    IncomesFile()
+    {
+        idOfLastIncome = loadIdOfLastIncomeFromFile(); 
+    }
     void saveToFile(Incomes income);
     vector<Incomes> LoadFromFile(int ID_OF_LOGGED_USER);
+    int getIdOfLastIncome(); 
+    void setIdOfLastIncome(int id_of_last_income);
 };
 
 #endif

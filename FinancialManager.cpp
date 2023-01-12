@@ -5,7 +5,9 @@ void FinancialManager::addIncome()
     Incomes income;
     income.setUserId(ID_OF_LOGGED_USER);
 
-    income.setIncomeId(getIdOfLastIncome());
+    income.setIncomeId(incomesFile.getIdOfLastIncome());
+    incomesFile.setIdOfLastIncome(income.getIncomeId()); 
+
 
     cout << "Podaj nazwe przychodu: ";
     string item;
@@ -36,7 +38,8 @@ void FinancialManager::addExpense()
     Expenses expense;
     expense.setUserId(ID_OF_LOGGED_USER);
 
-    expense.setExpenseId(getIdOfLastExpense());
+    expense.setExpenseId(expensesFile.getIdOfLastExpense());
+    expensesFile.setIdOfLastExpense(expense.getExpenseId()); 
 
     cout << "Podaj nazwe wydatku: ";
     string item;

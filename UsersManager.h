@@ -9,12 +9,12 @@ using namespace std;
 
 class UsersManager
 {
+    UsersFile usersFile;
     string usersLogin;
     string usersPassword;
     int idOfLoggedUser;
     int idOfLastUser;
-    vector<Users> users;
-    UsersFile usersFile;
+    vector<Users> users;  
     bool checkLogin(string login, vector<Users> users);
     bool checkPassword(string password, vector<Users> users);
     string checkIfLoginExists();
@@ -25,7 +25,7 @@ public:
     {
         idOfLastUser = 0;
         idOfLoggedUser = 0;
-        vector<Users> users = usersFile.loadFromFile();
+        users = usersFile.loadFromFile();
     }
 
     void registerNewUser();
