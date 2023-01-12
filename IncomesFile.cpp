@@ -85,10 +85,10 @@ int IncomesFile::loadIdOfLastIncomeFromFile()
 
 int IncomesFile::getIdOfLastIncome()
 {
-    return idOfLastIncome; 
+    return idOfLastIncome;
 }
 
 void IncomesFile::setIdOfLastIncome(int id_of_last_income)
 {
-    idOfLastIncome = ++id_of_last_income; 
+    idOfLastIncome = ++id_of_last_income;
 }

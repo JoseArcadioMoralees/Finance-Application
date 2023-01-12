@@ -20,8 +20,6 @@ class FinancialManager
     IncomesFile incomesFile;
     ExpensesFile expensesFile;
     string getDate();
-    int getIdOfLastIncome();
-    int getIdOfLastExpense();
     void totalBalance();
     void periodBalance();
     void currentMonthBalance();

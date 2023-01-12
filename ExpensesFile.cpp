@@ -68,7 +68,7 @@ vector<Expenses> ExpensesFile::loadFromFile(int ID_OF_LOGGED_USER)
 
 int ExpensesFile::loadIdOfLastExpenseFromFile()
 {
-    idOfLastExpense = 0; 
+    idOfLastExpense = 0;
     if (xml.Load("expenses.xml"))
     {
         xml.FindElem();
@@ -81,15 +81,15 @@ int ExpensesFile::loadIdOfLastExpenseFromFile()
             xml.OutOfElem();
         }
     }
-    return ++idOfLastExpense; 
+    return ++idOfLastExpense;
 }
 
 int ExpensesFile::getIdOfLastExpense()
 {
-    return idOfLastExpense; 
+    return idOfLastExpense;
 }
 
 void ExpensesFile::setIdOfLastExpense(int id_of_last_expense)
 {
-    idOfLastExpense = ++id_of_last_expense; 
+    idOfLastExpense = ++id_of_last_expense;
 }

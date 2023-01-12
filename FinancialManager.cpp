@@ -6,8 +6,7 @@ void FinancialManager::addIncome()
     income.setUserId(ID_OF_LOGGED_USER);
 
     income.setIncomeId(incomesFile.getIdOfLastIncome());
-    incomesFile.setIdOfLastIncome(income.getIncomeId()); 
-
+    incomesFile.setIdOfLastIncome(income.getIncomeId());
 
     cout << "Podaj nazwe przychodu: ";
     string item;
@@ -24,13 +23,13 @@ void FinancialManager::addIncome()
 
     income.setDate(getDate());
 
-    incomes.push_back(income); 
+    incomes.push_back(income);
     incomesFile.saveToFile(income);
 
     sort(incomes.begin(), incomes.end(), Incomes::compareDates);
 
     cout << "Dodano przychod" << endl;
-    system("Pause"); 
+    system("Pause");
 }
 
 void FinancialManager::addExpense()
@@ -39,7 +38,7 @@ void FinancialManager::addExpense()
     expense.setUserId(ID_OF_LOGGED_USER);
 
     expense.setExpenseId(expensesFile.getIdOfLastExpense());
-    expensesFile.setIdOfLastExpense(expense.getExpenseId()); 
+    expensesFile.setIdOfLastExpense(expense.getExpenseId());
 
     cout << "Podaj nazwe wydatku: ";
     string item;
@@ -182,7 +181,7 @@ void FinancialManager::currentMonthBalance()
     double balance;
     string startDate, endDate, daysOfMonth, currentDate, month;
     currentDate = AuxiliaryFunctions::currentDate();
-    map<string, string> DaysOfMonth = AuxiliaryFunctions::daysOfMonth(); 
+    map<string, string> DaysOfMonth = AuxiliaryFunctions::daysOfMonth();
 
     month = currentDate[5];
     month = month + currentDate[6];
@@ -258,7 +257,7 @@ void FinancialManager::lastMonthBalance()
     double sumOfIncomes = 0;
     double balance;
     string startDate, endDate, daysOfMonth, currentDate, month;
-    map<string, string> DaysOfMonth = AuxiliaryFunctions::daysOfMonth(); 
+    map<string, string> DaysOfMonth = AuxiliaryFunctions::daysOfMonth();
 
     currentDate = AuxiliaryFunctions::currentDate();
     currentDate = AuxiliaryFunctions::minusOneMonth(currentDate);
@@ -381,36 +380,4 @@ string FinancialManager::getDate()
     }
 
     return date;
-}
-
-int FinancialManager::getIdOfLastIncome()
-{
-    int idOfLastIncome = 0;
-    incomes = incomesFile.loadFromFile(ID_OF_LOGGED_USER);
-
-    for (unsigned int i = 0; i < incomes.size(); i++)
-    {
-        if (idOfLastIncome < incomes[i].getIncomeId())
-        {
-            idOfLastIncome = incomes[i].getIncomeId();
-        }
-    }
-
-    return ++idOfLastIncome;
-}
-
-int FinancialManager::getIdOfLastExpense()
-{
-    int idOfLastExpense = 0;
-    expenses = expensesFile.loadFromFile(ID_OF_LOGGED_USER);
-
-    for (unsigned int i = 0; i < expenses.size(); i++)
-    {
-        if (idOfLastExpense < expenses[i].getExpenseId())
-        {
-            idOfLastExpense = expenses[i].getExpenseId();
-        }
-    }
-
-    return ++idOfLastExpense;
 }

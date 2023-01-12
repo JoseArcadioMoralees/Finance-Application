@@ -14,7 +14,7 @@ class UsersManager
     string usersPassword;
     int idOfLoggedUser;
     int idOfLastUser;
-    vector<Users> users;  
+    vector<Users> users;
     bool checkLogin(string login, vector<Users> users);
     bool checkPassword(string password, vector<Users> users);
     string checkIfLoginExists();

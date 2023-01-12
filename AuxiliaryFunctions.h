@@ -17,7 +17,7 @@ public:
     static string currentDate();
     static bool checkDate(string date);
     static string prepareToSaveToFile(double amount);
-    static map<string, string> daysOfMonth(); 
+    static map<string, string> daysOfMonth();
     static string minusOneMonth(string date);
 };
 

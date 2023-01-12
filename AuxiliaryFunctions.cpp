@@ -75,7 +75,7 @@ bool AuxiliaryFunctions::checkDate(string date)
         }
     }
     if (date[5] >= '1' &&
-         (date[6] > '2'))
+        (date[6] > '2'))
     {
         cout << "W roku jest tylko 12 miesiecy. Wpisano za duza ich liczbe." << endl;
         flag = false;
@@ -190,7 +190,7 @@ map<string, string> AuxiliaryFunctions::daysOfMonth()
     DaysOfMonth["10"] = "31";
     DaysOfMonth["11"] = "30";
     DaysOfMonth["12"] = "31";
-    return DaysOfMonth; 
+    return DaysOfMonth;
 }
 
 string AuxiliaryFunctions::minusOneMonth(string date)
@@ -233,5 +233,3 @@ string AuxiliaryFunctions::minusOneMonth(string date)
 
     return date;
 }
-
-

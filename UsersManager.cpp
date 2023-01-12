@@ -26,8 +26,8 @@ void UsersManager::registerNewUser()
 
     usersFile.saveToFile(user);
 
-    cout << "Zarejestrowano uzytkownika." << endl; 
-    system("Pause"); 
+    cout << "Zarejestrowano uzytkownika." << endl;
+    system("Pause");
 }
 
 void UsersManager::logAUser()
