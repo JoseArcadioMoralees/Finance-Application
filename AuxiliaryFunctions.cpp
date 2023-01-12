@@ -74,6 +74,12 @@ bool AuxiliaryFunctions::checkDate(string date)
             break;
         }
     }
+    if (date[5] >= '1' &&
+         (date[6] > '2'))
+    {
+        cout << "W roku jest tylko 12 miesiecy. Wpisano za duza ich liczbe." << endl;
+        flag = false;
+    }
     if (date.size() < 10)
     {
         cout << "Podano za mala ilosc znakow." << endl;
