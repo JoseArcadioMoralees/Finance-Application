@@ -74,6 +74,12 @@ bool AuxiliaryFunctions::checkDate(string date)
             break;
         }
     }
+    if (date[5] >= '1' &&
+        (date[6] > '2'))
+    {
+        cout << "W roku jest tylko 12 miesiecy. Wpisano za duza ich liczbe." << endl;
+        flag = false;
+    }
     if (date.size() < 10)
     {
         cout << "Podano za mala ilosc znakow." << endl;
@@ -169,13 +175,6 @@ string AuxiliaryFunctions::prepareToSaveToFile(double amount)
     return amountStr;
 }
 
-string AuxiliaryFunctions::addHyphenToDate(string date)
-{
-    date = date.insert(4, "-");
-    date = date.insert(7, "-");
-    return date;
-}
-
 map<string, string> AuxiliaryFunctions::daysOfMonth()
 {
     map<string, string> DaysOfMonth;
@@ -191,7 +190,7 @@ map<string, string> AuxiliaryFunctions::daysOfMonth()
     DaysOfMonth["10"] = "31";
     DaysOfMonth["11"] = "30";
     DaysOfMonth["12"] = "31";
-    return DaysOfMonth; 
+    return DaysOfMonth;
 }
 
 string AuxiliaryFunctions::minusOneMonth(string date)
@@ -234,5 +233,3 @@ string AuxiliaryFunctions::minusOneMonth(string date)
 
     return date;
 }
-
-

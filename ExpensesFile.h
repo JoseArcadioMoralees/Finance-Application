@@ -1,18 +1,28 @@
 #ifndef EXPENSESFILE_H
 #define EXPENSESFILE_H
-#include<iostream>
+#include <iostream>
 #include "Markup.h"
 #include "Expenses.h"
 #include "AuxiliaryFunctions.h"
-#include<vector>
-#include<algorithm>
+#include <vector>
+#include <algorithm>
 
 class ExpensesFile
 {
-public:
-    void saveToFile(Expenses expense); 
-    vector<Expenses> LoadFromFile(int ID_OF_LOGGED_USER); 
-};
+    CMarkup xml;
+    int idOfLastExpense;
+    int loadIdOfLastExpenseFromFile();
 
+public:
+    ExpensesFile()
+    {
+        idOfLastExpense = loadIdOfLastExpenseFromFile();
+    }
+
+    void saveToFile(Expenses expense);
+    vector<Expenses> loadFromFile(int ID_OF_LOGGED_USER);
+    int getIdOfLastExpense();
+    void setIdOfLastExpense(int id_of_last_expense);
+};
 
 #endif

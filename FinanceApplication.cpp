@@ -8,38 +8,33 @@ void FinanceApplication::registerNewUser()
 void FinanceApplication::logAUser()
 {
     usersManager.logAUser();
-    financialManager = new FinancialManager(usersManager.getIdOfLoggedUser()); 
-}
-
-void FinanceApplication::showUsers()
-{
-    usersManager.showUsers();
+    financialManager = new FinancialManager(usersManager.getIdOfLoggedUser());
 }
 
 int FinanceApplication::getIdOfLoggedUser()
 {
-    return usersManager.getIdOfLoggedUser(); 
+    return usersManager.getIdOfLoggedUser();
 }
 void FinanceApplication::logOut()
 {
-    usersManager.setIdOfLoggedUser(0); 
+    usersManager.setIdOfLoggedUser(0);
     delete financialManager;
     financialManager = NULL;
 }
 
 void FinanceApplication::addIncome()
 {
-    financialManager->addIncome(); 
+    financialManager->addIncome();
 }
 
 void FinanceApplication::addExpense()
 {
-    financialManager->addExpense(); 
+    financialManager->addExpense();
 }
 
 void FinanceApplication::balance()
 {
-    financialManager->balance(); 
+    financialManager->balance();
 }
 
 void FinanceApplication::changePassword()

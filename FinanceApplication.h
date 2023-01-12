@@ -2,34 +2,31 @@
 #include "FinancialManager.h"
 #include "UsersManager.h"
 
-
-using namespace std; 
+using namespace std;
 
 class FinanceApplication
 {
-    UsersManager usersManager;  
+    UsersManager usersManager;
     FinancialManager *financialManager;
+
 public:
     FinanceApplication()
     {
-        financialManager = NULL; 
+        financialManager = NULL;
     }
 
     ~FinanceApplication()
     {
         delete financialManager;
-        financialManager = NULL; 
+        financialManager = NULL;
     }
 
     void registerNewUser();
-    void logAUser(); 
-    void showUsers();
-    int getIdOfLoggedUser(); 
-    void logOut(); 
+    void logAUser();
+    int getIdOfLoggedUser();
+    void logOut();
     void addIncome();
     void addExpense();
     void balance();
-    void changePassword(); 
-
-
+    void changePassword();
 };

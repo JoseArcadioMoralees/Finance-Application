@@ -2,7 +2,6 @@
 
 void ExpensesFile::saveToFile(Expenses expense)
 {
-    CMarkup xml;
 
     bool fileExists = xml.Load("expenses.xml");
 
@@ -25,9 +24,8 @@ void ExpensesFile::saveToFile(Expenses expense)
     xml.Save("expenses.xml");
 }
 
-vector<Expenses> ExpensesFile::LoadFromFile(int ID_OF_LOGGED_USER)
+vector<Expenses> ExpensesFile::loadFromFile(int ID_OF_LOGGED_USER)
 {
-    CMarkup xml;
     Expenses expense;
     vector<Expenses> expenses;
 
@@ -51,7 +49,6 @@ vector<Expenses> ExpensesFile::LoadFromFile(int ID_OF_LOGGED_USER)
                 expense.setAmount(stod(xml.GetData()));
                 xml.FindElem("date");
                 string date = xml.GetData();
-                date.erase(remove(date.begin(), date.end(), '-'), date.end());
                 expense.setDate(date);
 
                 xml.OutOfElem();
@@ -67,4 +64,32 @@ vector<Expenses> ExpensesFile::LoadFromFile(int ID_OF_LOGGED_USER)
     sort(expenses.begin(), expenses.end(), Expenses::compareDates);
 
     return expenses;
+}
+
+int ExpensesFile::loadIdOfLastExpenseFromFile()
+{
+    idOfLastExpense = 0;
+    if (xml.Load("expenses.xml"))
+    {
+        xml.FindElem();
+        xml.IntoElem();
+        while (xml.FindElem("expense"))
+        {
+            xml.IntoElem();
+            xml.FindElem("expensesId");
+            idOfLastExpense = (stoi(xml.GetData()));
+            xml.OutOfElem();
+        }
+    }
+    return ++idOfLastExpense;
+}
+
+int ExpensesFile::getIdOfLastExpense()
+{
+    return idOfLastExpense;
+}
+
+void ExpensesFile::setIdOfLastExpense(int id_of_last_expense)
+{
+    idOfLastExpense = ++id_of_last_expense;
 }

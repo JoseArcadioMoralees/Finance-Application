@@ -2,8 +2,6 @@
 
 void IncomesFile::saveToFile(Incomes income)
 {
-    CMarkup xml;
-
     bool fileExists = xml.Load("incomes.xml");
 
     if (!fileExists)
@@ -25,9 +23,8 @@ void IncomesFile::saveToFile(Incomes income)
     xml.Save("incomes.xml");
 }
 
-vector<Incomes> IncomesFile::LoadFromFile(int ID_OF_LOGGED_USER)
+vector<Incomes> IncomesFile::loadFromFile(int ID_OF_LOGGED_USER)
 {
-    CMarkup xml;
     Incomes income;
     vector<Incomes> incomes;
 
@@ -51,7 +48,6 @@ vector<Incomes> IncomesFile::LoadFromFile(int ID_OF_LOGGED_USER)
                 income.setAmount(stod(xml.GetData()));
                 xml.FindElem("date");
                 string date = xml.GetData();
-                date.erase(remove(date.begin(), date.end(), '-'), date.end());
                 income.setDate(date);
 
                 xml.OutOfElem();
@@ -67,4 +63,32 @@ vector<Incomes> IncomesFile::LoadFromFile(int ID_OF_LOGGED_USER)
     sort(incomes.begin(), incomes.end(), Incomes::compareDates);
 
     return incomes;
+}
+
+int IncomesFile::loadIdOfLastIncomeFromFile()
+{
+    idOfLastIncome = 0;
+    if (xml.Load("incomes.xml"))
+    {
+        xml.FindElem();
+        xml.IntoElem();
+        while (xml.FindElem("income"))
+        {
+            xml.IntoElem();
+            xml.FindElem("incomesId");
+            idOfLastIncome = (stoi(xml.GetData()));
+            xml.OutOfElem();
+        }
+    }
+    return ++idOfLastIncome;
+}
+
+int IncomesFile::getIdOfLastIncome()
+{
+    return idOfLastIncome;
+}
+
+void IncomesFile::setIdOfLastIncome(int id_of_last_income)
+{
+    idOfLastIncome = ++id_of_last_income;
 }

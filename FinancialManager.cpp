@@ -5,7 +5,8 @@ void FinancialManager::addIncome()
     Incomes income;
     income.setUserId(ID_OF_LOGGED_USER);
 
-    income.setIncomeId(getIdOfLastIncome());
+    income.setIncomeId(incomesFile.getIdOfLastIncome());
+    incomesFile.setIdOfLastIncome(income.getIncomeId());
 
     cout << "Podaj nazwe przychodu: ";
     string item;
@@ -22,10 +23,13 @@ void FinancialManager::addIncome()
 
     income.setDate(getDate());
 
+    incomes.push_back(income);
     incomesFile.saveToFile(income);
 
+    sort(incomes.begin(), incomes.end(), Incomes::compareDates);
+
     cout << "Dodano przychod" << endl;
-    system("Pause"); 
+    system("Pause");
 }
 
 void FinancialManager::addExpense()
@@ -33,7 +37,8 @@ void FinancialManager::addExpense()
     Expenses expense;
     expense.setUserId(ID_OF_LOGGED_USER);
 
-    expense.setExpenseId(getIdOfLastExpense());
+    expense.setExpenseId(expensesFile.getIdOfLastExpense());
+    expensesFile.setIdOfLastExpense(expense.getExpenseId());
 
     cout << "Podaj nazwe wydatku: ";
     string item;
@@ -51,7 +56,9 @@ void FinancialManager::addExpense()
 
     expense.setDate(getDate());
 
+    expenses.push_back(expense);
     expensesFile.saveToFile(expense);
+    sort(expenses.begin(), expenses.end(), Expenses::compareDates);
 
     cout << "Dodano wydatek" << endl;
     system("Pause");
@@ -59,14 +66,9 @@ void FinancialManager::addExpense()
 
 void FinancialManager::totalBalance()
 {
-    vector<Expenses> expenses;
-    vector<Incomes> incomes;
     double sumOfExpenses = 0;
     double sumOfIncomes = 0;
     double balance;
-
-    incomes = incomesFile.LoadFromFile(ID_OF_LOGGED_USER);
-    expenses = expensesFile.LoadFromFile(ID_OF_LOGGED_USER);
 
     for (unsigned int i = 0; i < incomes.size(); i++)
     {
@@ -86,7 +88,7 @@ void FinancialManager::totalBalance()
     {
         cout << "Rodzaj: " << incomes[i].getItem() << " | "
              << "Kwota: " << fixed << setprecision(2) << incomes[i].getAmount() << " | "
-             << "Data: " << AuxiliaryFunctions::addHyphenToDate(incomes[i].getDate()) << endl;
+             << "Data: " << incomes[i].getDate() << endl;
     }
     cout << endl
          << endl;
@@ -96,7 +98,7 @@ void FinancialManager::totalBalance()
     {
         cout << "Rodzaj: " << expenses[i].getItem() << " | "
              << "Kwota: " << fixed << setprecision(2) << expenses[i].getAmount() << " | "
-             << "Data: " << AuxiliaryFunctions::addHyphenToDate(expenses[i].getDate()) << endl;
+             << "Data: " << expenses[i].getDate() << endl;
     }
     cout << endl;
 
@@ -108,14 +110,10 @@ void FinancialManager::totalBalance()
 
 void FinancialManager::periodBalance()
 {
-    vector<Expenses> expenses;
-    vector<Incomes> incomes;
     double sumOfExpenses = 0;
     double sumOfIncomes = 0;
     double balance;
     string startDate, endDate;
-    incomes = incomesFile.LoadFromFile(ID_OF_LOGGED_USER);
-    expenses = expensesFile.LoadFromFile(ID_OF_LOGGED_USER);
 
     cout << "Podaj date startowa (rrrr-mm-dd): ";
     cin >> startDate;
@@ -150,7 +148,7 @@ void FinancialManager::periodBalance()
         {
             cout << "Rodzaj: " << incomes[i].getItem() << " | "
                  << "Kwota: " << fixed << setprecision(2) << incomes[i].getAmount() << " | "
-                 << "Data: " << AuxiliaryFunctions::addHyphenToDate(incomes[i].getDate()) << endl;
+                 << "Data: " << incomes[i].getDate() << endl;
         }
     }
     cout << endl
@@ -163,7 +161,7 @@ void FinancialManager::periodBalance()
         {
             cout << "Rodzaj: " << expenses[i].getItem() << " | "
                  << "Kwota: " << fixed << setprecision(2) << expenses[i].getAmount() << " | "
-                 << "Data: " << AuxiliaryFunctions::addHyphenToDate(expenses[i].getDate()) << endl;
+                 << "Data: " << expenses[i].getDate() << endl;
         }
     }
     cout << endl
@@ -178,16 +176,12 @@ void FinancialManager::periodBalance()
 
 void FinancialManager::currentMonthBalance()
 {
-    vector<Expenses> expenses;
-    vector<Incomes> incomes;
     double sumOfExpenses = 0;
     double sumOfIncomes = 0;
     double balance;
     string startDate, endDate, daysOfMonth, currentDate, month;
-    incomes = incomesFile.LoadFromFile(ID_OF_LOGGED_USER);
-    expenses = expensesFile.LoadFromFile(ID_OF_LOGGED_USER);
     currentDate = AuxiliaryFunctions::currentDate();
-    map<string, string> DaysOfMonth = AuxiliaryFunctions::daysOfMonth(); 
+    map<string, string> DaysOfMonth = AuxiliaryFunctions::daysOfMonth();
 
     month = currentDate[5];
     month = month + currentDate[6];
@@ -231,7 +225,7 @@ void FinancialManager::currentMonthBalance()
         {
             cout << "Rodzaj: " << incomes[i].getItem() << " | "
                  << "Kwota: " << fixed << setprecision(2) << incomes[i].getAmount() << " | "
-                 << "Data: " << AuxiliaryFunctions::addHyphenToDate(incomes[i].getDate()) << endl;
+                 << "Data: " << incomes[i].getDate() << endl;
         }
     }
     cout << endl
@@ -244,7 +238,7 @@ void FinancialManager::currentMonthBalance()
         {
             cout << "Rodzaj: " << expenses[i].getItem() << " | "
                  << "Kwota: " << fixed << setprecision(2) << expenses[i].getAmount() << " | "
-                 << "Data: " << AuxiliaryFunctions::addHyphenToDate(expenses[i].getDate()) << endl;
+                 << "Data: " << expenses[i].getDate() << endl;
         }
     }
     cout << endl
@@ -259,16 +253,12 @@ void FinancialManager::currentMonthBalance()
 
 void FinancialManager::lastMonthBalance()
 {
-    vector<Expenses> expenses;
-    vector<Incomes> incomes;
     double sumOfExpenses = 0;
     double sumOfIncomes = 0;
     double balance;
     string startDate, endDate, daysOfMonth, currentDate, month;
-    map<string, string> DaysOfMonth = AuxiliaryFunctions::daysOfMonth(); 
+    map<string, string> DaysOfMonth = AuxiliaryFunctions::daysOfMonth();
 
-    incomes = incomesFile.LoadFromFile(ID_OF_LOGGED_USER);
-    expenses = expensesFile.LoadFromFile(ID_OF_LOGGED_USER);
     currentDate = AuxiliaryFunctions::currentDate();
     currentDate = AuxiliaryFunctions::minusOneMonth(currentDate);
 
@@ -314,7 +304,7 @@ void FinancialManager::lastMonthBalance()
         {
             cout << "Rodzaj: " << incomes[i].getItem() << " | "
                  << "Kwota: " << fixed << setprecision(2) << incomes[i].getAmount() << " | "
-                 << "Data: " << AuxiliaryFunctions::addHyphenToDate(incomes[i].getDate()) << endl;
+                 << "Data: " << incomes[i].getDate() << endl;
         }
     }
     cout << endl
@@ -327,7 +317,7 @@ void FinancialManager::lastMonthBalance()
         {
             cout << "Rodzaj: " << expenses[i].getItem() << " | "
                  << "Kwota: " << fixed << setprecision(2) << expenses[i].getAmount() << " | "
-                 << "Data: " << AuxiliaryFunctions::addHyphenToDate(expenses[i].getDate()) << endl;
+                 << "Data: " << expenses[i].getDate() << endl;
         }
     }
     cout << endl
@@ -390,38 +380,4 @@ string FinancialManager::getDate()
     }
 
     return date;
-}
-
-int FinancialManager::getIdOfLastIncome()
-{
-    vector<Incomes> incomes;
-    int idOfLastIncome = 0;
-    incomes = incomesFile.LoadFromFile(ID_OF_LOGGED_USER);
-
-    for (unsigned int i = 0; i < incomes.size(); i++)
-    {
-        if (idOfLastIncome < incomes[i].getIncomeId())
-        {
-            idOfLastIncome = incomes[i].getIncomeId();
-        }
-    }
-
-    return ++idOfLastIncome;
-}
-
-int FinancialManager::getIdOfLastExpense()
-{
-    vector<Expenses> expenses;
-    int idOfLastExpense = 0;
-    expenses = expensesFile.LoadFromFile(ID_OF_LOGGED_USER);
-
-    for (unsigned int i = 0; i < expenses.size(); i++)
-    {
-        if (idOfLastExpense < expenses[i].getExpenseId())
-        {
-            idOfLastExpense = expenses[i].getExpenseId();
-        }
-    }
-
-    return ++idOfLastExpense;
 }

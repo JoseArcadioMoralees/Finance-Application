@@ -25,6 +25,9 @@ void UsersManager::registerNewUser()
     users.push_back(user);
 
     usersFile.saveToFile(user);
+
+    cout << "Zarejestrowano uzytkownika." << endl;
+    system("Pause");
 }
 
 void UsersManager::logAUser()
@@ -81,21 +84,6 @@ void UsersManager::logAUser()
             system("Pause");
         }
     }
-}
-
-void UsersManager::showUsers()
-{
-    for (unsigned int i = 0; i < users.size(); i++)
-    {
-
-        cout << "ID: " << users[i].getUserId() << endl;
-        cout << "Login: " << users[i].getLogin() << endl;
-        cout << "Password: " << users[i].getPassword() << endl;
-        cout << "Name: " << users[i].getName() << endl;
-        cout << "Surname: " << users[i].getSurname() << endl
-             << endl;
-    }
-    system("Pause");
 }
 
 bool UsersManager::checkLogin(string login, vector<Users> users)
