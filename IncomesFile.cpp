@@ -51,7 +51,6 @@ vector<Incomes> IncomesFile::LoadFromFile(int ID_OF_LOGGED_USER)
                 income.setAmount(stod(xml.GetData()));
                 xml.FindElem("date");
                 string date = xml.GetData();
-                date.erase(remove(date.begin(), date.end(), '-'), date.end());
                 income.setDate(date);
 
                 xml.OutOfElem();

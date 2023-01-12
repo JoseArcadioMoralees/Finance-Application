@@ -51,7 +51,6 @@ vector<Expenses> ExpensesFile::LoadFromFile(int ID_OF_LOGGED_USER)
                 expense.setAmount(stod(xml.GetData()));
                 xml.FindElem("date");
                 string date = xml.GetData();
-                date.erase(remove(date.begin(), date.end(), '-'), date.end());
                 expense.setDate(date);
 
                 xml.OutOfElem();
