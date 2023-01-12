@@ -23,7 +23,7 @@ void IncomesFile::saveToFile(Incomes income)
     xml.Save("incomes.xml");
 }
 
-vector<Incomes> IncomesFile::LoadFromFile(int ID_OF_LOGGED_USER)
+vector<Incomes> IncomesFile::loadFromFile(int ID_OF_LOGGED_USER)
 {
     Incomes income;
     vector<Incomes> incomes;

@@ -20,7 +20,7 @@ public:
     }
 
     void saveToFile(Expenses expense);
-    vector<Expenses> LoadFromFile(int ID_OF_LOGGED_USER);
+    vector<Expenses> loadFromFile(int ID_OF_LOGGED_USER);
     int getIdOfLastExpense();
     void setIdOfLastExpense(int id_of_last_expense);
 };

@@ -24,7 +24,7 @@ void ExpensesFile::saveToFile(Expenses expense)
     xml.Save("expenses.xml");
 }
 
-vector<Expenses> ExpensesFile::LoadFromFile(int ID_OF_LOGGED_USER)
+vector<Expenses> ExpensesFile::loadFromFile(int ID_OF_LOGGED_USER)
 {
     Expenses expense;
     vector<Expenses> expenses;

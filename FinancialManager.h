@@ -30,8 +30,8 @@ class FinancialManager
 public:
     FinancialManager(int id_of_logged_user) : ID_OF_LOGGED_USER(id_of_logged_user)
     {
-        incomes = incomesFile.LoadFromFile(ID_OF_LOGGED_USER);
-        expenses = expensesFile.LoadFromFile(ID_OF_LOGGED_USER);
+        incomes = incomesFile.loadFromFile(ID_OF_LOGGED_USER);
+        expenses = expensesFile.loadFromFile(ID_OF_LOGGED_USER);
     }
 
     void addIncome();

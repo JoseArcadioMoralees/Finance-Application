@@ -386,7 +386,7 @@ string FinancialManager::getDate()
 int FinancialManager::getIdOfLastIncome()
 {
     int idOfLastIncome = 0;
-    incomes = incomesFile.LoadFromFile(ID_OF_LOGGED_USER);
+    incomes = incomesFile.loadFromFile(ID_OF_LOGGED_USER);
 
     for (unsigned int i = 0; i < incomes.size(); i++)
     {
@@ -402,7 +402,7 @@ int FinancialManager::getIdOfLastIncome()
 int FinancialManager::getIdOfLastExpense()
 {
     int idOfLastExpense = 0;
-    expenses = expensesFile.LoadFromFile(ID_OF_LOGGED_USER);
+    expenses = expensesFile.loadFromFile(ID_OF_LOGGED_USER);
 
     for (unsigned int i = 0; i < expenses.size(); i++)
     {

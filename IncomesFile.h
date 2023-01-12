@@ -19,7 +19,7 @@ public:
         idOfLastIncome = loadIdOfLastIncomeFromFile(); 
     }
     void saveToFile(Incomes income);
-    vector<Incomes> LoadFromFile(int ID_OF_LOGGED_USER);
+    vector<Incomes> loadFromFile(int ID_OF_LOGGED_USER);
     int getIdOfLastIncome(); 
     void setIdOfLastIncome(int id_of_last_income);
 };
